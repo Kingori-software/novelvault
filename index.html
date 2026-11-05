@@ -1,118 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python in HTML - Interactive Demo</title>
-    
-    <!-- PyScript (latest stable as of mid-2026) -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
-    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
-
-    <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.5;
-        }
-        input, button {
-            padding: 10px 16px;
-            font-size: 16px;
-            margin: 8px 4px 8px 0;
-        }
-        button {
-            cursor: pointer;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-        }
-        button:hover {
-            background: #1d4ed8;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 16px;
-            background: #f1f5f9;
-            border-radius: 8px;
-            min-height: 60px;
-        }
-        #chart {
-            margin-top: 30px;
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>🚀 Aviator Crash Predictor — ML Demo</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:radial-gradient(1200px 600px at 50% -10%,#1b2430 0%,#0d1117 60%);
+    color:#e6edf3;min-height:100vh;display:flex;justify-content:center;
+    padding:24px 16px 60px;
+  }
+  main{width:100%;max-width:780px}
+  h1{font-size:1.6rem;margin:0 0 10px}
+  .tag{font-size:.68rem;background:#1f6feb33;color:#79c0ff;border:1px solid #1f6feb55;
+       padding:2px 8px;border-radius:999px;vertical-align:middle;margin-left:6px}
+  .disclaimer{background:#3d2a0b;border:1px solid #9e6a03;color:#e3b341;
+              padding:10px 14px;border-radius:10px;font-size:.85rem;line-height:1.5}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;font-size:.78rem;color:#8b949e}
+  .stats span{background:#161b22;border:1px solid #30363d;padding:6px 12px;border-radius:8px}
+  .stats b{color:#e6edf3}
+  .log{background:#0b0f14;border:1px solid #30363d;border-radius:12px;padding:14px;
+       height:300px;overflow-y:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+       font-size:.82rem;line-height:1.65}
+  .line{white-space:pre-wrap;word-break:break-word}
+  .line.ok{color:#3fb950}
+  .line.err{color:#f85149}
+  .line.pred{color:#a371f7;font-weight:700}
+  .line.info{color:#79c0ff}
+  .controls{margin-top:14px;background:#161b22;border:1px solid #30363d;border-radius:12px;padding:16px}
+  label{display:block;margin-bottom:8px;font-size:.9rem;color:#c9d1d9}
+  input,textarea{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;
+                 border-radius:8px;padding:10px 12px;font-size:.9rem;font-family:inherit;resize:vertical}
+  input:focus,textarea:focus{outline:none;border-color:#2f81f7;box-shadow:0 0 0 3px #2f81f733}
+  .row{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+  .col{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+  button{background:#238636;color:#fff;border:1px solid #2ea043;padding:10px 18px;
+         border-radius:8px;font-size:.9rem;cursor:pointer;font-weight:600;font-family:inherit}
+  button:hover{background:#2ea043}
+  button.ghost{background:#21262d;border-color:#30363d;color:#c9d1d9}
+  button.ghost:hover{background:#30363d}
+  .pred-box{background:#1c1230;border:1px solid #8957e5;color:#d2a8ff;
+            padding:12px 14px;border-radius:10px;margin-bottom:14px;font-size:1rem}
+  .warn-box{background:#3d2a0b;border:1px solid #9e6a03;color:#e3b341;
+            padding:10px 14px;border-radius:10px;margin-bottom:12px}
+  .footer{margin-top:16px;text-align:right}
+</style>
 </head>
 <body>
-    <h1>Python running inside HTML</h1>
-    <p>Enter a number and click the button. Everything runs in your browser using Python.</p>
+<main>
+  <h1>🚀 Aviator Predictor <span class="tag">ML DEMO</span></h1>
 
-    <input type="number" id="numberInput" value="7" min="1" max="20">
-    <button id="calcBtn">Calculate</button>
+  <p class="disclaimer">
+    ⚠️ <strong>Educational demo only.</strong> Crash games generate provably random outcomes.
+    A model like this <strong>cannot</strong> predict the next crash point — this page is a
+    machine-learning playground, not a betting tool. Never gamble money you can't afford to lose.
+  </p>
 
-    <div id="result">Results will appear here...</div>
-    <div id="chart"></div>
+  <div class="stats" id="stats"></div>
+  <div class="log" id="log"></div>
+  <div class="controls" id="controls"></div>
 
-    <!-- Load matplotlib -->
-    <py-config>
-        packages = ["matplotlib", "numpy"]
-    </py-config>
+  <div class="footer">
+    <button id="reset" class="ghost">Reset everything</button>
+  </div>
+</main>
 
-    <script type="py">
-        from pyscript import when, display, document
-        import math
-        import numpy as np
-        import matplotlib.pyplot as plt
+<script>
+/* =========================================================
+   1. MATH HELPERS
+   ========================================================= */
+function meanOf(a){ let s=0; for(const v of a) s+=v; return s/a.length; }
+function varianceOf(a){
+  const m = meanOf(a);
+  let s = 0;
+  for(const v of a) s += (v-m)*(v-m);
+  return s/a.length;               // population variance (ddof = 0)
+}
+function mulberry32(a){
+  return function(){
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
 
-        def factorial(n):
-            return math.factorial(n)
+/* =========================================================
+   2. FEATURE ENGINEERING  (identical to the Python version)
+   ========================================================= */
+function featuresFromWindow(w){
+  const avg    = meanOf(w);
+  const diff   = w[w.length-1] - w[0];
+  const varr   = varianceOf(w);
+  const std    = Math.sqrt(varr);
+  let momentum = 0;
+  for(let j=1;j<w.length;j++) momentum += w[j]-w[j-1];
+  const ma5    = meanOf(w.slice(-5));
+  return [...w, avg, diff, varr, std, momentum, ma5];   // 15 + 6 = 21 features
+}
 
-        def fibonacci(n):
-            seq = [0, 1]
-            while len(seq) < n:
-                seq.append(seq[-1] + seq[-2])
-            return seq[:n]
+function createFeatures(points){
+  const X = [], y = [];
+  for(let i=0; i+15 < points.length; i++){
+    const w = points.slice(i, i+15);
+    X.push(featuresFromWindow(w));
+    y.push(points[i+15]);
+  }
+  return {X, y};
+}
 
-        @when("click", "#calcBtn")
-        def calculate(event):
-            # Get the value from the input
-            value = document.querySelector("#numberInput").value
-            try:
-                n = int(value)
-                if n < 1 or n > 20:
-                    display("Please enter a number between 1 and 20", target="result", append=False)
-                    return
-            except:
-                display("Please enter a valid number", target="result", append=False)
-                return
+/* =========================================================
+   3. STANDARD SCALER  (sklearn StandardScaler equivalent)
+   ========================================================= */
+function fitScaler(X){
+  const n = X.length, F = X[0].length;
+  const mean = new Array(F).fill(0);
+  const scale = new Array(F).fill(1);
+  for(let f=0; f<F; f++){
+    let s = 0;
+    for(let i=0;i<n;i++) s += X[i][f];
+    mean[f] = s/n;
+    let v = 0;
+    for(let i=0;i<n;i++){ const d = X[i][f]-mean[f]; v += d*d; }
+    v /= n;
+    scale[f] = v === 0 ? 1 : Math.sqrt(v);
+  }
+  return {
+    mean, scale,
+    transformRow(row){ return row.map((v,f)=>(v-mean[f])/scale[f]); },
+    transform(X){ return X.map(r=>this.transformRow(r)); }
+  };
+}
 
-            # Python calculations
-            fact = factorial(n)
-            fib = fibonacci(n)
+/* =========================================================
+   4. CART REGRESSION TREE  (variance-reduction splits)
+   ========================================================= */
+class RegressionTree {
+  constructor(maxDepth){ this.maxDepth = maxDepth; this.root = null; }
 
-            # Show text results
-            result_text = f"""
-            <strong>Number:</strong> {n}<br>
-            <strong>Factorial ({n}!):</strong> {fact}<br>
-            <strong>First {n} Fibonacci numbers:</strong> {fib}
-            """
-            display(result_text, target="result", append=False)
+  fit(X, r){
+    this.root = this._build(X, r, X.map((_,i)=>i), 0);
+  }
 
-            # Create a chart
-            x = np.linspace(0, n, 100)
-            y = np.sin(x) * np.exp(-x/10)   # nice looking wave
+  _build(X, r, idx, depth){
+    const n = idx.length;
+    let sum = 0;
+    for(const i of idx) sum += r[i];
+    const mean = n ? sum/n : 0;
 
-            fig, ax = plt.subplots(figsize=(7, 3.5))
-            ax.plot(x, y, color="#2563eb", linewidth=2)
-            ax.set_title(f"Sine wave damped (related to n = {n})")
-            ax.set_xlabel("x")
-            ax.set_ylabel("y")
-            ax.grid(True, alpha=0.3)
-            fig.tight_layout()
+    if(depth >= this.maxDepth || n < 2) return {leaf:true, value:mean};
 
-            display(fig, target="chart", append=False)
-            plt.close(fig)
-    </script>
-</body>
-</html>
+    let bestGain = 0, bestF = -1, bestTh = 0;
+    const F = X[0].length;
+
+    for(let f=0; f<F; f++){
+      const uniq = Array.from(new Set(idx.map(i=>X[i][f]))).sort((a,b)=>a-b);
+      if(uniq.length < 2) continue;
+
+      for(let k=0; k<uniq.length-1; k++){
+        const th = (uniq[k] + uniq[k+1]) / 2;
+        let ls=0, lc=0, rs=0, rc=0;
+        for(const i of idx){
+          if(X[i][f] <= th){ ls += r[i]; lc++; }
+          else             { rs += r[i]; rc++; }
+        }
+        if(lc === 0 || rc === 0) continue;
+        const gain = (ls*ls/lc + rs*rs/rc) - (sum*sum)/n;
+        if(gain > bestGain + 1e-12){ bestGain = gain; bestF = f; bestTh = th; }
+      }
+    }
+
+    if(bestF === -1) return {leaf:true, value:mean};
+
+    const leftIdx = [], rightIdx = [];
+    for(const i of idx){
+      (X[i][bestF] <= bestTh ? leftIdx : rightIdx).push(i);
+    }
+    if(leftIdx.length === 0 || rightIdx.length === 0) return {leaf:true, value:mean};
+
+    return {
+      leaf:false, f:bestF, th:bestTh,
+      left:  this._build(X, r, leftIdx,  depth+1),
+      right: this._build(X, r, rightIdx, depth+1)
+    };
+  }
+
+  predictRow(x){
+    let node = this.root;
+    while(!node.leaf) node = x[node.f] <= node.th ? node.left : node.right;
+    return node.value;
+  }
+}
+
+/* =========================================================
+   5. GRADIENT BOOSTING REGRESSOR (squared loss)
+   ========================================================= */
+function fitGBR(X, y, {nEstimators=200, learningRate=0.05, maxDepth=5} = {}){
+  const n = X.length;
+  const base = meanOf(y);
+  const preds = new Array(n).fill(base);
+  const trees = [];
+
+  for(let m=0; m<nEstimators; m++){
+    const residuals = new Array(n);
+    for(let i=0;i<n;i++) residuals[i] = y[i] - preds[i];
+
+    const tree = new RegressionTree(maxDepth);
+    tree.fit(X, residuals);
+
+    for(let i=0;i<n;i++) preds[i] += learningRate * tree.predictRow(X[i]);
+    trees.push(tree);
+  }
+
+  return {
+    base, trees, learningRate,
+    predictRow(x){
+      let p = this.base;
+      for(const t of this.trees) p += this.learningRate * t.predictRow(x);
+      return p;
+    }
+  };
+}
+
+/* =========================================================
+   6. METRICS + SPLIT
+   ========================================================= */
+function meanSquaredError(yTrue, yPred){
+  let s = 0;
+  for(let i=0;i<yTrue.length;i++){ const d = yTrue[i]-yPred[i]; s += d*d; }
+  return s / yTrue.length;
+}
+function r2Score(yTrue, yPred){
+  const n = yTrue.length;
+  if(n < 2) return NaN;
+  const m = meanOf(yTrue);
+  let ssRes = 0, ssTot = 0;
+  for(let i=0;i<n;i++){
+    ssRes += (yTrue[i]-yPred[i])**2;
+    ssTot += (yTrue[i]-m)**2;
+  }
+  if(ssTot === 0) return NaN;
+  return 1 - ssRes/ssTot;
+}
+function trainTestSplit(X, y, testSize = 0.2, seed = 42){
+  const n = X.length;
+  const idx = [...Array(n).keys()];
+  const rng = mulberry32(seed);
+  for(let i=n-1;i>0;i--){
+    const j = Math.floor(rng()*(i+1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  const nTest = Math.ceil(n*testSize);
+  const testIdx  = idx.slice(0, nTest);
+  const trainIdx = idx.slice(nTest);
+  return {
+    Xtrain: trainIdx.map(i=>X[i]), ytrain: trainIdx.map(i=>y[i]),
+    Xval:   testIdx.map(i=>X[i]),  yval:   testIdx.map(i=>y[i])
+  };
+}
+
+/* =========================================================
+   7. TRAIN + PREDICT PIPELINE
+   ========================================================= */
+function trainModel(crashPoints, logFn){
+  const {X, y} = createFeatures(crashPoints);
+  if(X.length < 2) throw new Error('Not enough samples to train (need at least 17 crash points).');
+
+  const {Xtrain, ytrain, Xval, yval} = trainTestSplit(X, y, 0.2, 42);
+
+  const scaler = fitScaler(Xtrain);
+  const XtrainS = scaler.transform(Xtrain);
+  const XvalS   = scaler.transform(Xval);
+
+  const model = fitGBR(XtrainS, ytrain, {nEstimators:200, learningRate:0.05, maxDepth:5});
+
+  const preds = XvalS.map(r => model.predictRow(r));
+  const mse = meanSquaredError(yval, preds);
+  const r2  = r2Score(yval, preds);
+
+  logFn(`📊 Validation MSE: ${mse.toFixed(2)}, R²: ${Number.isFinite(r2) ? r2.toFixed(2) : 'n/a'}`, 'info');
+  return {model, scaler};
+}
+
+function predictNextCrash(model, scaler, latest15){
+  const feats  = featuresFromWindow(latest15);
+  const scaled = scaler.transformRow(feats);
+  return Math.max(model.predictRow(scaled), 0);
+}
+
+/* =========================================================
+   8. UI STATE MACHINE
+   ========================================================= */
+const state = {
+  crashPoints: [],
+  failureCount: 0,
+  MAX_FAILURES: 5,
+  stage: 'init',          // init | awaitRecent | awaitActual | awaitContinue | failureMenu | refresh | done
+  lastPrediction: null,
+  model: null,
+  scaler: null
+};
+
+const $log = document.getElementById('log');
+const $controls = document.getElementById('controls');
+const $stats = document.getElementById('stats');
+
+function log(msg, cls = ''){
+  const line = document.createElement('div');
+  line.className = 'line ' + cls;
+  line.textContent = msg;
+  $log.appendChild(line);
+  $log.scrollTop = $log.scrollHeight;
+}
+
+function fmt(n){ return Number(n).toFixed(2); }
+
+function updateStats(){
+  $stats.innerHTML = `
+    <span>Stored points: <b>${state.crashPoints.length}</b></span>
+    <span>Consecutive failures: <b>${state.failureCount}/${state.MAX_FAILURES}</b></span>
+    <span>Last prediction: <b>${state.lastPrediction != null ? fmt(state.lastPrediction) : '—'}</b></span>
+  `;
+}
+
+/* ---------- input parsing ---------- */
+function parsePoints(str){
+  return String(str).trim().split(/[\s,;]+/).filter(s=>s !== '').map(Number);
+}
+function validPoints(pts){
+  return pts.length > 0 && pts.every(p => Number.isFinite(p) && p >= 0);
+}
+function randomPoints(n){
+  const out = [];
+  for(let i=0;i<n;i++){
+    const v = Math.max(1, 1 + (-Math.log(1 - Math.random())) * 0.7);
+    out.push(+v.toFixed(2));
+  }
+  return out;
+}
+
+/* =========================================================
+   9. RENDER
+   ========================================================= */
+function render(){
+  updateStats();
+  $controls.innerHTML = '';
+
+  const add = html => $controls.insertAdjacentHTML('beforeend', html);
+
+  switch(state.stage){
+
+    case 'init': {
+      add(`
+        <label>Enter the last <b>15</b> crash points (comma / space / newline separated):</label>
+        <textarea id="inp" rows="3" placeholder="1.24, 2.10, 1.05, 3.42, ..."></textarea>
+        <div class="row">
+          <button id="go">▶ Start</button>
+          <button id="demo" class="ghost">Fill demo data</button>
+        </div>`);
+      const inp = $controls.querySelector('#inp');
+      inp.focus();
+      $controls.querySelector('#go').onclick = () => handleStart(inp.value);
+      $controls.querySelector('#demo').onclick = () => {
+        inp.value = randomPoints(15).join(', ');
+      };
+      break;
+    }
+
+    case 'awaitRecent': {
+      add(`
+        <label>Enter the latest <b>2</b> crash points:</label>
+        <input id="inp" type="text" autocomplete="off" placeholder="e.g. 1.87, 2.34">
+        <div class="row"><button id="go">🔮 Predict next crash</button></div>`);
+      const inp = $controls.querySelector('#inp');
+      inp.focus();
+      inp.onkeydown = e => { if(e.key === 'Enter') handleRecent(inp.value); };
+      $controls.querySelector('#go').onclick = () => handleRecent(inp.value);
+      break;
+    }
+
+    case 'awaitActual': {
+      add(`
+        <div class="pred-box">🔮 Predicted next crash point: <b>${fmt(state.lastPrediction)}</b></div>
+        <label>Enter the <b>actual</b> crash point of the plane:</label>
+        <input id="inp" type="text" autocomplete="off" placeholder="e.g. 1.95">
+        <div class="row"><button id="go">Submit result</button></div>`);
+      const inp = $controls.querySelector('#inp');
+      inp.focus();
+      inp.onkeydown = e => { if(e.key === 'Enter') handleActual(inp.value); };
+      $controls.querySelector('#go').onclick = () => handleActual(inp.value);
+      break;
+    }
+
+    case 'awaitContinue': {
+      add(`
+        <label>Do you want to predict the next crash?</label>
+        <div class="row">
+          <button id="yes">Yes</button>
+          <button id="no" class="ghost">No</button>
+        </div>`);
+      $controls.querySelector('#yes').onclick = () => { state.stage = 'awaitRecent'; render(); };
+      $controls.querySelector('#no').onclick  = () => {
+        log('👋 Thank you for using the Aviator Predictor. Good luck!');
+        state.stage = 'done';
+        render();
+      };
+      break;
+    }
+
+    case 'failureMenu': {
+      add(`
+        <div class="warn-box">⚠️ Too many failed predictions.</div>
+        <label>What do you want to do?</label>
+        <div class="col">
+          <button data-c="1">1. Restart with 15 new crash points</button>
+          <button data-c="2" class="ghost">2. Retry prediction with current data</button>
+          <button data-c="3" class="ghost">3. Refresh recent data (7 old + 8 new)</button>
+        </div>`);
+      $controls.querySelectorAll('button[data-c]').forEach(btn => {
+        btn.onclick = () => handleMenu(parseInt(btn.dataset.c, 10));
+      });
+      break;
+    }
+
+    case 'refresh': {
+      add(`
+        <label>Enter <b>8</b> new crash points (the last 7 stored points are kept):</label>
+        <textarea id="inp" rows="2" placeholder="1.50, 2.20, 1.10, ..."></textarea>
+        <div class="row"><button id="go">Apply refresh</button></div>`);
+      const inp = $controls.querySelector('#inp');
+      inp.focus();
+      $controls.querySelector('#go').onclick = () => handleRefresh(inp.value);
+      break;
+    }
+
+    case 'done': {
+      add(`<div class="row"><button id="again">Start again</button></div>`);
+      $controls.querySelector('#again').onclick = () => resetAll();
+      break;
+    }
+  }
+}
+
+/* =========================================================
+   10. HANDLERS
+   ========================================================= */
+function handleStart(text){
+  const pts = parsePoints(text);
+  if(pts.length < 15){ log('❌ Please enter at least 15 crash points.', 'err'); return; }
+  if(!validPoints(pts)){ log('❌ All crash points must be non-negative numbers.', 'err'); return; }
+
+  state.crashPoints = pts.slice(0, 15);
+  state.failureCount = 0;
+  state.lastPrediction = null;
+  if(pts.length > 15) log(`ℹ️ Only the first 15 of ${pts.length} entered points were used.`, 'info');
+
+  log(`✅ Loaded ${state.crashPoints.length} crash points.`, 'ok');
+  state.stage = 'awaitRecent';
+  render();
+}
+
+function handleRecent(text){
+  const pts = parsePoints(text);
+  if(pts.length !== 2){ log('❌ Please enter exactly 2 crash points.', 'err'); return; }
+  if(!validPoints(pts)){ log('❌ Crash points must be non-negative numbers.', 'err'); return; }
+
+  state.crashPoints.push(...pts);
+  log(`➕ Added: ${pts.map(fmt).join(', ')}`);
+
+  if(state.crashPoints.length > 15){
+    try {
+      trainAndPredict();
+      state.stage = 'awaitActual';
+    } catch(err){
+      log('❌ Training failed: ' + err.message, 'err');
+      state.stage = 'awaitRecent';
+    }
+  } else {
+    log('⚠️ Not enough data to predict yet. Keep entering crash points.');
+    state.stage = 'awaitRecent';
+  }
+  render();
+}
+
+function trainAndPredict(){
+  const {X} = createFeatures(state.crashPoints);
+  log(`🧠 Training GradientBoostingRegressor on ${X.length} samples × ${X[0].length} features...`, 'info');
+
+  const {model, scaler} = trainModel(state.crashPoints, log);
+
+  const window15 = state.crashPoints.slice(-15);
+  const prediction = predictNextCrash(model, scaler, window15);
+
+  state.model = model;
+  state.scaler = scaler;
+  state.lastPrediction = prediction;
+
+  log(`🔮 Predicted next crash point: ${fmt(prediction)}`, 'pred');
+}
+
+function handleActual(text){
+  const pts = parsePoints(text);
+  if(pts.length !== 1){ log('❌ Please enter exactly 1 crash point.', 'err'); return; }
+  if(!validPoints(pts)){ log('❌ Crash point must be a non-negative number.', 'err'); return; }
+
+  const actual = pts[0];
+  state.crashPoints.push(actual);
+
+  const diff = Math.abs(actual - state.lastPrediction);
+  if(diff > 1.0){
+    state.failureCount++;
+    log(`❌ Prediction failed (off by ${fmt(diff)}). Consecutive failures: ${state.failureCount}`, 'err');
+  } else {
+    state.failureCount = 0;
+    log(`✅ Prediction within tolerance (off by ${fmt(diff)}).`, 'ok');
+  }
+
+  if(state.crashPoints.length > 30){
+    state.crashPoints = state.crashPoints.slice(-30);
+  }
+
+  state.stage = state.failureCount >= state.MAX_FAILURES ? 'failureMenu' : 'awaitContinue';
+  render();
+}
+
+function handleMenu(choice){
+  if(choice === 1){
+    log('🔄 Restart selected. Enter 15 new crash points.', 'info');
+    state.crashPoints = [];
+    state.failureCount = 0;
+    state.lastPrediction = null;
+    state.stage = 'init';
+  } else if(choice === 2){
+    log('🔁 Retrying with current data...', 'info');
+    state.failureCount = 0;
+    state.stage = 'awaitContinue';
+  } else if(choice === 3){
+    log('📥 Refresh selected. Enter 8 new crash points.', 'info');
+    state.failureCount = 0;
+    state.stage = 'refresh';
+  }
+  render();
+}
+
+function handleRefresh(text){
+  const pts = parsePoints(text);
+  if(pts.length !== 8){ log('❌ Please enter exactly 8 crash points.', 'err'); return; }
+  if(!validPoints(pts)){ log('❌ Crash points must be non-negative numbers.', 'err'); return; }
+
+  state.crashPoints = state.crashPoints.slice(-7).concat(pts);
+  state.failureCount = 0;
+  log(`✅ Data refreshed. Now holding ${state.crashPoints.length} crash points.`, 'ok');
+  state.stage = 'awaitRecent';
+  render();
+}
+
+/* =========================================================
+   11. BOOT
+   ========================================================= */
+function welcome(){
+  log('🚀 Welcome to the Advanced Aviator Predictor!');
+  log('Enter the last 15 crash points to begin.');
+  log('⚠️ Reminder: crash games are random — this is a learning demo, not a betting edge.', 'info');
+}
+
+function resetAll(){
+‎  $log.innerHTML = '';
+‎  state.crashPoints = [];
+‎  state.failureCount = 0;
+‎  state.lastPrediction = null;
+‎  state.model = null;
+‎  state.scaler = null;
+‎  state.stage = 'init';
+‎  welcome();
+‎  render();
+‎}
+‎
+‎document.getElementById('reset').onclick = resetAll;
+‎welcome();
+‎render();
+‎</script>
+‎</body>
+‎</html>
