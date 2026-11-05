@@ -1,118 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python in HTML - Interactive Demo</title>
-    
-    <!-- PyScript (latest stable as of mid-2026) -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
-    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
-
-    <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.5;
-        }
-        input, button {
-            padding: 10px 16px;
-            font-size: 16px;
-            margin: 8px 4px 8px 0;
-        }
-        button {
-            cursor: pointer;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 6px;
-        }
-        button:hover {
-            background: #1d4ed8;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 16px;
-            background: #f1f5f9;
-            border-radius: 8px;
-            min-height: 60px;
-        }
-        #chart {
-            margin-top: 30px;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clothing Store — Login</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Python running inside HTML</h1>
-    <p>Enter a number and click the button. Everything runs in your browser using Python.</p>
 
-    <input type="number" id="numberInput" value="7" min="1" max="20">
-    <button id="calcBtn">Calculate</button>
+  <!-- ===== Animated background orbs ===== -->
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
 
-    <div id="result">Results will appear here...</div>
-    <div id="chart"></div>
+  <!-- ===================================================== -->
+  <!-- ==================== LOGIN VIEW ===================== -->
+  <!-- ===================================================== -->
+  <section id="loginView" class="view active">
+    <div class="login-card">
 
-    <!-- Load matplotlib -->
-    <py-config>
-        packages = ["matplotlib", "numpy"]
-    </py-config>
+      <div class="logo">
+        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M32 22a7 7 0 1 1 7-7" />
+          <path d="M32 22v5" />
+          <path d="M32 27 9 44.5A4.5 4.5 0 0 0 11.7 52h40.6a4.5 4.5 0 0 0 2.7-7.5L32 27Z" />
+        </svg>
+      </div>
 
-    <script type="py">
-        from pyscript import when, display, document
-        import math
-        import numpy as np
-        import matplotlib.pyplot as plt
+      <h1 class="brand">Clothing<span>Store</span></h1>
+      <p class="subtitle">Sign in to enter the collection</p>
 
-        def factorial(n):
-            return math.factorial(n)
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="username">Name</label>
+          <input id="username" type="text" placeholder="Enter your name" autocomplete="off" spellcheck="false" />
+        </div>
 
-        def fibonacci(n):
-            seq = [0, 1]
-            while len(seq) < n:
-                seq.append(seq[-1] + seq[-2])
-            return seq[:n]
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input id="password" type="password" placeholder="Enter your password" autocomplete="off" />
+            <button type="button" class="eye" id="togglePw" aria-label="Show password">👁</button>
+          </div>
+        </div>
 
-        @when("click", "#calcBtn")
-        def calculate(event):
-            # Get the value from the input
-            value = document.querySelector("#numberInput").value
-            try:
-                n = int(value)
-                if n < 1 or n > 20:
-                    display("Please enter a number between 1 and 20", target="result", append=False)
-                    return
-            except:
-                display("Please enter a valid number", target="result", append=False)
-                return
+        <button type="submit" class="btn-login" id="loginBtn">Enter Store</button>
+        <p class="error" id="errorMsg"></p>
+      </form>
 
-            # Python calculations
-            fact = factorial(n)
-            fib = fibonacci(n)
+      <p class="hint">Demo accounts &middot; User1 &nbsp;|&nbsp; Boss1</p>
+    </div>
+  </section>
 
-            # Show text results
-            result_text = f"""
-            <strong>Number:</strong> {n}<br>
-            <strong>Factorial ({n}!):</strong> {fact}<br>
-            <strong>First {n} Fibonacci numbers:</strong> {fib}
-            """
-            display(result_text, target="result", append=False)
+  <!-- ===================================================== -->
+  <!-- ==================== STORE VIEW ===================== -->
+  <!-- ===================================================== -->
+  <section id="storeView" class="view">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="mini-logo">
+          <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="4"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M32 22a7 7 0 1 1 7-7" />
+            <path d="M32 22v5" />
+            <path d="M32 27 9 44.5A4.5 4.5 0 0 0 11.7 52h40.6a4.5 4.5 0 0 0 2.7-7.5L32 27Z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="top-title">Clothing Store</h2>
+          <p class="top-sub" id="storeGreeting">Welcome</p>
+        </div>
+      </div>
 
-            # Create a chart
-            x = np.linspace(0, n, 100)
-            y = np.sin(x) * np.exp(-x/10)   # nice looking wave
+      <div class="topbar-right">
+        <div class="cart">
+          🛍 <span class="cart-count" id="cartCount">0</span>
+        </div>
+        <button class="btn-ghost" data-logout>Log out</button>
+      </div>
+    </header>
 
-            fig, ax = plt.subplots(figsize=(7, 3.5))
-            ax.plot(x, y, color="#2563eb", linewidth=2)
-            ax.set_title(f"Sine wave damped (related to n = {n})")
-            ax.set_xlabel("x")
-            ax.set_ylabel("y")
-            ax.grid(True, alpha=0.3)
-            fig.tight_layout()
+    <div class="section-head">
+      <h2>New Season Drops</h2>
+      <p>Five hand-picked pieces, ready to ship.</p>
+    </div>
 
-            display(fig, target="chart", append=False)
-            plt.close(fig)
-    </script>
+    <main class="grid" id="productGrid"></main>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- ==================== METALS VIEW ==================== -->
+  <!-- ===================================================== -->
+  <section id="metalsView" class="view">
+    <header class="topbar metals-topbar">
+      <div class="topbar-left">
+        <div class="mini-logo gold-logo">◆</div>
+        <div>
+          <h2 class="top-title gold-text">Precious Metals Exchange</h2>
+          <p class="top-sub" id="metalGreeting">Private access</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <span class="boss-badge">BOSS ACCESS</span>
+        <button class="btn-ghost" data-logout>Log out</button>
+      </div>
+    </header>
+
+    <div class="section-head">
+      <h2 class="gold-text">Today&rsquo;s High-Value Metals</h2>
+      <p>Approximate market price per gram &middot; USD</p>
+    </div>
+
+    <main class="metal-list" id="metalGrid"></main>
+  </section>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
