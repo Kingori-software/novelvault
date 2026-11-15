@@ -1276,4 +1276,36 @@ He returned to the website's list of directors.
 ‎  novels.forEach((n, i) => {
 ‎    const card = document.createElement('article');
 ‎    card.className = 'book-card';
+    card.dataset.id = n.id;
+    card.style.animationDelay = `${i * 55}ms`;
+
+    const coverHTML = n.cover
+      ? `<img src="${esc(n.cover)}" alt="${esc(n.title)} cover"
+              onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('afterbegin','<div class=\\'ph-cover\\' style=\\'--h:${hashStr(n.title)}\\'><span>${esc(initials(n.title))}</span></div>')">`
+      : `<div class="ph-cover" style="--h:${hashStr(n.title)}"><span>${esc(initials(n.title))}</span></div>`;
+
+    card.innerHTML = `
+      <div class="book-cover">${coverHTML}</div>
+      <div class="book-info">
+        <h3 class="book-title" data-role="title">${esc(n.title)}</h3>
+        <span class="chapter-count">${n.chapters.length} chapter${n.chapters.length !== 1 ? 's' : ''}</span>
+      </div>
+      <div class="card-tools">
+        <button data-act="rename" title="Rename book">✎</button>
+        <button data-act="edit"   title="Edit novel & chapters">⚙</button>
+        <button data-act="delete" title="Delete novel">🗑</button>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  /* Add-novel tile */
+  const tile = document.createElement('button');
+  tile.className = 'add-tile';
+  tile.innerHTML = `＋<small>Add Novel</small>`;
+  tile.style.animationDelay = `${novels.length * 55}ms`;
+  tile.addEventListener('click', () => openModal(null));
+  grid.appendChild(tile);
+}
 ‎    
