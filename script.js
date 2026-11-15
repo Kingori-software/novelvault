@@ -1351,12 +1351,6 @@ function renderLibrary() {
     grid.appendChild(card);
   });
 
-  const tile = document.createElement('button');
-  tile.className = 'add-tile';
-  tile.innerHTML = '＋<small>Add Novel</small>';
-  tile.style.animationDelay = (novels.length * 55) + 'ms';
-  tile.addEventListener('click', () => openModal(null));
-  grid.appendChild(tile);
 }
 
 /* =====================================================================
