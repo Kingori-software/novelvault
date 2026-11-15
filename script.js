@@ -1926,16 +1926,23 @@ function bindEvents() {
   $('#readerBack').addEventListener('click', closeReader);
 $('#prevPage').addEventListener('click', () => turnPage('prev'));
 $('#nextPage').addEventListener('click', () => turnPage('next'));
-// Touch swipe to turn pages
+// Touch swipe — only fires on a deliberate horizontal swipe,
+// never on a vertical scroll
 let touchStartX = 0;
+let touchStartY = 0;
 const articleEl = $('#readerArticle');
 articleEl.addEventListener('touchstart', (e) => {
   touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
 }, { passive: true });
 articleEl.addEventListener('touchend', (e) => {
   if (isTurning) return;
-  const diff = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(diff) > 60) turnPage(diff > 0 ? 'prev' : 'next');
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  // Real swipe = at least 80px horizontal, and horizontal dominates vertical
+  const isHorizontalSwipe =
+    Math.abs(dx) > 80 && Math.abs(dx) > Math.abs(dy) * 1.5;
+  if (isHorizontalSwipe) turnPage(dx > 0 ? 'prev' : 'next');
 }, { passive: true });
 
   $('#fontSelect').addEventListener('change', (e) => {
