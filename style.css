@@ -780,3 +780,96 @@ color-mix(in srgb, currentColor 12%, transparent); }
 ‎@media (prefers-reduced-motion: reduce) {
 ‎  * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 ‎}
+
+/* =====================================================================
+   PAGINATION & BOOK-FLIP ADDITIONS
+   ===================================================================== */
+
+/* Reader stage (holds article + click zones) */
+.reader-stage {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 0 2rem;
+}
+
+/* Click zones on left / right of the page for turning */
+.page-zone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  transition: background .25s ease;
+}
+.page-zone.left  { left: 0; }
+.page-zone.right { right: 0; }
+.page-zone.left:hover  { background: linear-gradient(to right, rgba(200,160,80,.10), transparent); }
+.page-zone.right:hover { background: linear-gradient(to left,  rgba(200,160,80,.10), transparent); }
+
+/* The article now flips */
+.reader-article {
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* Page footer — "Continued" / "End of Chapter" */
+.page-footer {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: .85rem;
+  color: var(--muted);
+  margin-top: 2.6rem;
+  padding-top: 1.3rem;
+  border-top: 1px dashed color-mix(in srgb, currentColor 22%, transparent);
+  letter-spacing: .04em;
+}
+.page-footer.end-of-chapter {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: var(--accent);
+  border-top-style: solid;
+}
+
+/* Page navigation bar at the bottom of the reader */
+.page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .8rem clamp(1rem, 3vw, 2rem);
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  backdrop-filter: blur(12px);
+  flex-wrap: wrap;
+}
+.page-indicator {
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem;
+  color: var(--muted);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.page-nav .ghost-btn { padding: .55rem 1.1rem; font-size: .85rem; }
+.page-nav .ghost-btn:disabled {
+  opacity: .3;
+  cursor: not-allowed;
+  transform: none;
+  background: transparent;
+}
+
+/* On mobile the click zones shrink a touch to leave room to read */
+@media (max-width: 640px) {
+  .page-zone { width: 10%; }
+  .page-nav { justify-content: center; }
+  .page-indicator { order: -1; width: 100%; text-align: center; }
+}
