@@ -1926,9 +1926,6 @@ function bindEvents() {
   $('#readerBack').addEventListener('click', closeReader);
 $('#prevPage').addEventListener('click', () => turnPage('prev'));
 $('#nextPage').addEventListener('click', () => turnPage('next'));
-$('#pageZoneLeft').addEventListener('click',  () => turnPage('prev'));
-$('#pageZoneRight').addEventListener('click', () => turnPage('next'));
-
 // Touch swipe to turn pages
 let touchStartX = 0;
 const articleEl = $('#readerArticle');
