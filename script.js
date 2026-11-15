@@ -1965,9 +1965,14 @@ articleEl.addEventListener('touchend', (e) => {
       savePrefs(); applyPrefs();
     });
   });
+document.addEventListener('keydown', (e) => {
+  const tag = (e.target.tagName || '').toLowerCase();
+  const inFormField =
+    tag === 'input' || tag === 'textarea' || tag === 'select' ||
+    e.target.isContentEditable;
+  if (inFormField) return;
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  if (e.key === 'Escape') {
       if (!$('#modal').classList.contains('hidden')) closeModal();
       else if (!$('#reader').classList.contains('hidden')) closeReader();
     }
