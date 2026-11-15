@@ -1931,8 +1931,22 @@ function bindEvents() {
   });
 
   $('#readerBack').addEventListener('click', closeReader);
-  $('#prevChapter').addEventListener('click', () => gotoChapter(-1));
-  $('#nextChapter').addEventListener('click', () => gotoChapter(1));
+$('#prevPage').addEventListener('click', () => turnPage('prev'));
+$('#nextPage').addEventListener('click', () => turnPage('next'));
+$('#pageZoneLeft').addEventListener('click',  () => turnPage('prev'));
+$('#pageZoneRight').addEventListener('click', () => turnPage('next'));
+
+// Touch swipe to turn pages
+let touchStartX = 0;
+const articleEl = $('#readerArticle');
+articleEl.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+}, { passive: true });
+articleEl.addEventListener('touchend', (e) => {
+  if (isTurning) return;
+  const diff = e.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(diff) > 60) turnPage(diff > 0 ? 'prev' : 'next');
+}, { passive: true });
 
   $('#fontSelect').addEventListener('change', (e) => {
     prefs.font = e.target.value;
@@ -1961,8 +1975,8 @@ function bindEvents() {
       else if (!$('#reader').classList.contains('hidden')) closeReader();
     }
     if (!$('#reader').classList.contains('hidden')) {
-      if (e.key === 'ArrowRight') gotoChapter(1);
-      if (e.key === 'ArrowLeft')  gotoChapter(-1);
-    }
+  if (e.key === 'ArrowRight') turnPage('next');
+  if (e.key === 'ArrowLeft')  turnPage('prev');
+}
   });
 }
