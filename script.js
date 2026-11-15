@@ -1892,7 +1892,6 @@ function bindEvents() {
   $('#logoutBtn').addEventListener('click', () => {
     if (confirm('Log out of Novel Vault?')) logout();
   });
-  $('#addNovelBtn').addEventListener('click', () => openModal(null));
 
   $('#closeModal').addEventListener('click', closeModal);
   $('#cancelModal').addEventListener('click', closeModal);
