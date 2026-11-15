@@ -46,6 +46,13 @@ let editingNovelId = null;
 let pendingCover = '';
 let prefs = { font: 'georgia', size: 19, theme: 'sepia' };
 
+/* --- pagination / page-flip state --- */
+let currentPageIndex = 0;
+let currentPages = [];
+let isTurning = false;
+
+const CHARS_PER_PAGE = 1400;
+const KEY_POSITION = 'novelVault.position';
 /* ------------------------------ Helpers ------------------------------ */
 const $ = (sel) => document.querySelector(sel);
 const $$ = (sel) => Array.prototype.slice.call(document.querySelectorAll(sel));
