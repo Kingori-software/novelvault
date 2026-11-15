@@ -132,8 +132,6 @@
   </div>
 </div>
 
-
-<!-- ============================= READER ============================= -->
 <div id="reader" class="reader hidden">
   <div class="reader-toolbar">
     <button class="icon-btn" id="readerBack" title="Back to library">←</button>
@@ -169,20 +167,27 @@
   </div>
 
   <div class="reader-scroll">
-    <article class="reader-article" id="readerArticle" data-theme="sepia">
-      <div class="reader-cover-wrap">
-        <div class="reader-cover" id="readerCover"></div>
-      </div>
-      <h1 class="reader-title" id="readerTitle"></h1>
-      <h2 class="reader-chapter" id="readerChapter"></h2>
-      <div class="reader-content" id="readerContent"></div>
+    <div class="reader-stage">
+      <button class="page-zone left" id="pageZoneLeft" aria-label="Previous page"></button>
 
-      <nav class="chapter-nav">
-        <button class="ghost-btn" id="prevChapter">← Previous Chapter</button>
-        <span id="chapterIndicator" class="muted"></span>
-        <button class="ghost-btn" id="nextChapter">Next Chapter →</button>
-      </nav>
-    </article>
+      <article class="reader-article" id="readerArticle" data-theme="sepia">
+        <div class="reader-cover-wrap" id="readerCoverWrap">
+          <div class="reader-cover" id="readerCover"></div>
+        </div>
+        <h1 class="reader-title" id="readerTitle"></h1>
+        <h2 class="reader-chapter" id="readerChapter"></h2>
+        <div class="reader-content" id="readerContent"></div>
+        <div class="page-footer" id="pageFooter">Continued on next page →</div>
+      </article>
+
+      <button class="page-zone right" id="pageZoneRight" aria-label="Next page"></button>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <button class="ghost-btn" id="prevPage">← Previous</button>
+    <span id="pageIndicator" class="page-indicator">Page 1 of 1</span>
+    <button class="ghost-btn" id="nextPage">Next →</button>
   </div>
 </div>
 
