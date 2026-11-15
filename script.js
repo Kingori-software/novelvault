@@ -1559,14 +1559,258 @@ function saveNovel() {
 /* =====================================================================
    READER
    ===================================================================== */
+/* =====================================================================
+   READER — with pagination, book-flip, and position memory
+   ===================================================================== */
+
 function openReader(id) {
   const n = getNovel(id);
   if (!n || !n.chapters.length) return;
   currentNovelId = id;
-  currentChapterIndex = 0;
+
+  // Try to restore last position
+  const saved = safeGet(KEY_POSITION, null);
+  const hasSaved = saved && saved.novelId === id;
+
+  if (hasSaved) {
+    currentChapterIndex = Math.min(Math.max(0, saved.chapterIndex || 0), n.chapters.length - 1);
+    currentPages = paginateChapter(n.chapters[currentChapterIndex].content);
+    currentPageIndex = Math.min(Math.max(0, saved.pageIndex || 0), currentPages.length - 1);
+  } else {
+    currentChapterIndex = 0;
+    currentPageIndex = 0;
+    currentPages = paginateChapter(n.chapters[0].content);
+  }
+
   $('#reader').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
-  renderChapter();
+  renderPage();
+  document.querySelector('.reader-scroll').scrollTo({ top: 0, behavior: 'instant' });
+}
+
+function closeReader() {
+  savePosition();
+  $('#reader').classList.add('hidden');
+  document.body.style.overflow = '';
+  currentNovelId = null;
+}
+
+function savePosition() {
+  if (!currentNovelId) return;
+  safeSet(KEY_POSITION, {
+    novelId: currentNovelId,
+    chapterIndex: currentChapterIndex,
+    pageIndex: currentPageIndex
+  });
+}
+
+function renderPage() {
+  const n = getNovel(currentNovelId);
+  if (!n) return;
+  const ch = n.chapters[currentChapterIndex] || { title: '', content: '' };
+  const isFirstPage = currentPageIndex === 0;
+
+  // Cover + title only on the first page of the chapter
+  const coverWrap  = document.getElementById('readerCoverWrap');
+  const titleEl    = document.getElementById('readerTitle');
+  const chapterEl  = document.getElementById('readerChapter');
+
+  if (isFirstPage) {
+    coverWrap.style.display  = '';
+    titleEl.style.display    = '';
+    chapterEl.style.display  = '';
+
+    const coverEl = $('#readerCover');
+    coverEl.innerHTML = n.cover
+      ? '<img src="' + esc(n.cover) + '" alt="' + esc(n.title) + ' cover">'
+      : '<div class="ph-cover" style="--h:' + hashStr(n.title) + ';width:100%;height:100%"><span>' + esc(initials(n.title)) + '</span></div>';
+
+    titleEl.textContent   = n.title.toUpperCase();
+    chapterEl.textContent = ch.title;
+  } else {
+    coverWrap.style.display  = 'none';
+    titleEl.style.display    = 'none';
+    chapterEl.style.display  = 'none';
+  }
+
+  $('#toolbarTitle').textContent = n.title;
+
+  // Page content
+  const pageContent = currentPages[currentPageIndex] || '';
+  const contentEl = $('#readerContent');
+  if (!pageContent.trim()) {
+    contentEl.innerHTML = '<p style="text-align:center;opacity:.6;font-style:italic">This chapter is still empty.</p>';
+  } else {
+    contentEl.innerHTML = pageContent
+      .split(/\n{2,}/)
+      .map(function (p) { return '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>'; })
+      .join('');
+  }
+
+  // Footer marker
+  const isLastPage    = currentPageIndex === currentPages.length - 1;
+  const isLastChapter = currentChapterIndex === n.chapters.length - 1;
+  const footer = $('#pageFooter');
+  if (isLastPage && isLastChapter) {
+    footer.textContent = '— The End —';
+    footer.className = 'page-footer end-of-chapter';
+  } else if (isLastPage) {
+    footer.textContent = '— End of Chapter —';
+    footer.className = 'page-footer end-of-chapter';
+  } else {
+    footer.textContent = 'Continued on next page →';
+    footer.className = 'page-footer';
+  }
+
+  // Page indicator
+  $('#pageIndicator').textContent = 'Page ' + (currentPageIndex + 1) + ' of ' + currentPages.length;
+
+  // Boundary disabling
+  const atStart = currentChapterIndex === 0 && currentPageIndex === 0;
+  const atEnd   = isLastChapter && isLastPage;
+  $('#prevPage').disabled = atStart;
+  $('#nextPage').disabled = atEnd;
+
+  applyPrefs();
+  savePosition();
+}
+
+async function turnPage(direction) {
+  if (isTurning) return;
+  const n = getNovel(currentNovelId);
+  if (!n) return;
+
+  const isLastPage    = currentPageIndex >= currentPages.length - 1;
+  const isFirstPage   = currentPageIndex <= 0;
+  const isLastChapter = currentChapterIndex >= n.chapters.length - 1;
+  const isFirstChapter = currentChapterIndex <= 0;
+
+  if (direction === 'next' && isLastPage && isLastChapter) return;
+  if (direction === 'prev' && isFirstPage && isFirstChapter) return;
+
+  isTurning = true;
+  try {
+    const article = $('#readerArticle');
+    const outAngle = direction === 'next' ? -100 : 100;
+    const inAngle  = direction === 'next' ?  100 : -100;
+
+    document.querySelector('.reader-scroll').scrollTo({ top: 0, behavior: 'instant' });
+
+    article.style.transition = 'transform .28s cubic-bezier(.4,0,1,1), opacity .28s ease-in';
+    article.style.transform  = 'perspective(1800px) rotateY(' + outAngle + 'deg)';
+    article.style.opacity    = '0';
+
+    await wait(280);
+
+    // Move position
+    if (direction === 'next') {
+      if (isLastPage) {
+        currentChapterIndex++;
+        currentPages = paginateChapter(n.chapters[currentChapterIndex].content);
+        currentPageIndex = 0;
+      } else {
+        currentPageIndex++;
+      }
+    } else {
+      if (isFirstPage) {
+        currentChapterIndex--;
+        currentPages = paginateChapter(n.chapters[currentChapterIndex].content);
+        currentPageIndex = currentPages.length - 1;
+      } else {
+        currentPageIndex--;
+      }
+    }
+
+    renderPage();
+
+    // Flip in from opposite side
+    article.style.transition = 'none';
+    article.style.transform  = 'perspective(1800px) rotateY(' + inAngle + 'deg)';
+    article.style.opacity    = '0';
+    void article.offsetWidth;
+
+    article.style.transition = 'transform .35s cubic-bezier(0,0,.2,1), opacity .35s ease-out';
+    article.style.transform  = 'perspective(1800px) rotateY(0deg)';
+    article.style.opacity    = '1';
+
+    await wait(360);
+
+    article.style.transition = '';
+    article.style.transform  = '';
+    article.style.opacity    = '';
+  } finally {
+    isTurning = false;
+  }
+}
+
+function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+/* ------------------------- Pagination engine ------------------------- */
+function paginateChapter(content) {
+  const limit = CHARS_PER_PAGE;
+  const paragraphs = (content || '').split(/\n{2,}/).map(function (p) { return p.trim(); }).filter(Boolean);
+  const pages = [];
+  let currentParts = [];
+  let currentChars = 0;
+
+  for (let i = 0; i < paragraphs.length; i++) {
+    const para = paragraphs[i];
+    const addedChars = currentParts.length ? para.length + 2 : para.length;
+
+    if (para.length > limit) {
+      // Oversized paragraph — flush current page then split
+      if (currentParts.length) {
+        pages.push(currentParts.join('\n\n'));
+        currentParts = [];
+        currentChars = 0;
+      }
+      const chunks = splitLongParagraph(para, limit);
+      for (let k = 0; k < chunks.length - 1; k++) pages.push(chunks[k]);
+      const last = chunks[chunks.length - 1];
+      currentParts = [last];
+      currentChars = last.length;
+    } else if (currentChars + addedChars > limit) {
+      pages.push(currentParts.join('\n\n'));
+      currentParts = [para];
+      currentChars = para.length;
+    } else {
+      currentParts.push(para);
+      currentChars += addedChars;
+    }
+  }
+
+  if (currentParts.length) pages.push(currentParts.join('\n\n'));
+  return pages.length ? pages : [''];
+}
+
+function splitLongParagraph(para, limit) {
+  const chunks = [];
+  let remaining = para;
+
+  while (remaining.length > limit) {
+    let breakAt = limit;
+    const windowStart = Math.max(0, limit - 200);
+    const windowStr = remaining.substring(windowStart, limit);
+
+    const lastSentence = Math.max(
+      windowStr.lastIndexOf('. '),
+      windowStr.lastIndexOf('? '),
+      windowStr.lastIndexOf('! ')
+    );
+
+    if (lastSentence > 50) {
+      breakAt = windowStart + lastSentence + 2;
+    } else {
+      const lastSpace = windowStr.lastIndexOf(' ');
+      if (lastSpace > 50) breakAt = windowStart + lastSpace + 1;
+    }
+
+    chunks.push(remaining.substring(0, breakAt).trim());
+    remaining = remaining.substring(breakAt).trim();
+  }
+
+  if (remaining) chunks.push(remaining);
+  return chunks;
 }
 
 function closeReader() {
