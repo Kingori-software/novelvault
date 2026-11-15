@@ -8,6 +8,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300..700&family=Crimson+Pro:ital,wght@0,300..700;1,300..700&family=Caveat:wght@400..700&family=Courier+Prime:ital,wght@0,400;1,400&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
+
+<!-- Error catcher: shows any JS error from script.js as a red banner -->
+<script>
+  window.addEventListener('error', function (e) {
+    if ((e.filename || '').indexOf('script.js') !== -1) {
+      var box = document.createElement('div');
+      box.style.cssText =
+        'position:fixed;bottom:0;left:0;right:0;background:#8b0000;color:#fff;' +
+        'padding:12px 18px;font:13px/1.4 monospace;z-index:99999;' +
+        'border-top:2px solid #ff5555;white-space:pre-wrap';
+      box.textContent =
+        'script.js error (line ' + e.lineno + ', col ' + e.colno + '): ' + e.message;
+      (document.body || document.documentElement).appendChild(box);
+    }
+  });
+</script>
 </head>
 <body class="dark">
 
@@ -46,7 +62,10 @@
     </div>
   </div>
 
-  <form class="login-card" id="loginForm" autocomplete="off">
+  <!-- ✅ FIXED: inline onsubmit calls global handleLogin() -->
+  <form class="login-card" id="loginForm" autocomplete="off"
+        onsubmit="if(typeof handleLogin==='function'){handleLogin(event);} return false;">
+
     <h1 class="login-title">Novel&nbsp;Vault</h1>
     <p class="login-sub">A secret library for devoted book lovers</p>
 
@@ -59,7 +78,9 @@
       <span>Password</span>
       <div class="pass-wrap">
         <input type="password" id="loginPass" placeholder="••••••••••••" autocomplete="current-password" />
-        <button type="button" id="togglePass" class="ghost-btn" aria-label="Show password">👁</button>
+        <!-- ✅ FIXED: inline onclick calls global handleEyeClick() -->
+        <button type="button" id="togglePass" class="ghost-btn" aria-label="Show password"
+                onclick="if(typeof handleEyeClick==='function'){handleEyeClick(event);} return false;">👁</button>
       </div>
     </label>
 
@@ -75,7 +96,6 @@
 <!-- ============================= MAIN APP ============================= -->
 <div id="app" class="app hidden">
 
-  <!-- Sliding quotes (homepage only) -->
   <div class="quotes-bar" aria-hidden="true">
     <div class="quotes-track" id="quotesTrack"></div>
   </div>
@@ -212,5 +232,25 @@
 </div>
 
 <script src="script.js"></script>
+
+<!-- Diagnostic: alerts you if script.js did not load at all -->
+<script>
+  setTimeout(function () {
+    if (!window.__novelVaultLoaded) {
+      var box = document.createElement('div');
+      box.style.cssText =
+        'position:fixed;top:0;left:0;right:0;background:#8b0000;color:#fff;' +
+        'padding:14px 20px;font:14px/1.5 monospace;z-index:99999;' +
+        'border-bottom:2px solid #ff5555;white-space:pre-wrap';
+      box.textContent =
+        '⚠️ script.js did NOT load.\n' +
+        '• Make sure the file is named exactly: script.js (lowercase)\n' +
+        '• It must sit in the SAME folder as index.html\n' +
+        '• Check for .txt or hidden extensions\n' +
+        '• Open DevTools (F12) → Console for more details';
+      document.body.appendChild(box);
+    }
+  }, 700);
+</script>
 </body>
 </html>
