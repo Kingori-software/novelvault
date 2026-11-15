@@ -1,6 +1,8 @@
 /* =====================================================================
-   NOVEL VAULT — script.js
+   NOVEL VAULT — script.js  (FIXED)
    ===================================================================== */
+
+window.__novelVaultLoaded = true;   // ← diagnostic flag
 
 /* ----------------------------- Constants ----------------------------- */
 const CREDENTIALS = { name: 'Admin', password: 'LoveNovels##01' };
@@ -46,9 +48,9 @@ let prefs = { font: 'georgia', size: 19, theme: 'sepia' };
 
 /* ------------------------------ Helpers ------------------------------ */
 const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => [...document.querySelectorAll(sel)];
+const $$ = (sel) => Array.prototype.slice.call(document.querySelectorAll(sel));
 
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => (
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => (
   { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]
 ));
 
@@ -72,15 +74,76 @@ function initials(title) {
 
 function safeGet(key, fallback) {
   try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
-  catch { return fallback; }
+  catch (e) { return fallback; }
 }
 function safeSet(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); return true; }
-  catch { return false; }
+  catch (e) { return false; }
 }
 
 /* =====================================================================
-   SEED DATA — the story
+   ✅ GLOBAL LOGIN HANDLER  — called by inline onsubmit in index.html
+   ===================================================================== */
+window.handleLogin = function (event) {
+  try {
+    if (event) event.preventDefault();
+
+    const nameEl = document.getElementById('loginName');
+    const passEl = document.getElementById('loginPass');
+    const errEl  = document.getElementById('loginError');
+    const cardEl = document.querySelector('.login-card');
+    if (!nameEl || !passEl) return false;
+
+    const name = nameEl.value.trim();
+    const pass = passEl.value;
+
+    const nameOk = name.toLowerCase() === CREDENTIALS.name.toLowerCase();
+    const passOk = pass === CREDENTIALS.password;
+
+    if (nameOk && passOk) {
+      if (errEl) errEl.textContent = '';
+      safeSet(KEY_AUTH, true);
+      if (cardEl) {
+        cardEl.style.transition = 'transform .45s ease, opacity .45s ease';
+        cardEl.style.transform  = 'scale(.94)';
+        cardEl.style.opacity    = '0';
+      }
+      setTimeout(showApp, 380);
+    } else {
+      if (errEl) errEl.textContent = 'Incorrect name or password. Try again.';
+      if (cardEl) {
+        cardEl.classList.remove('shake');
+        void cardEl.offsetWidth;
+        cardEl.classList.add('shake');
+      }
+      passEl.value = '';
+      passEl.focus();
+    }
+  } catch (e) {
+    console.error('handleLogin error:', e);
+  }
+  return false;
+};
+
+/* =====================================================================
+   ✅ GLOBAL PASSWORD-VISIBILITY TOGGLE — inline onclick in index.html
+   ===================================================================== */
+window.handleEyeClick = function (event) {
+  try {
+    if (event) event.preventDefault();
+    const passEl = document.getElementById('loginPass');
+    const eyeEl  = document.getElementById('togglePass');
+    if (!passEl || !eyeEl) return false;
+    passEl.type = (passEl.type === 'password') ? 'text' : 'password';
+    eyeEl.textContent = (passEl.type === 'password') ? '👁' : '🙈';
+  } catch (e) {
+    console.error('handleEyeClick error:', e);
+  }
+  return false;
+};
+
+/* =====================================================================
+   SEED DATA — the story (unchanged)
    ===================================================================== */
 const CHAPTER_ONE_TEXT = `The first person to notice Emilio was missing was not a person.
 
@@ -881,431 +944,774 @@ He looked at the man's wrist.
 The watch was identical.
 
 He returned to the website's list of directors.
-‎
-‎There were still only three names.
-‎
-‎The man in the photograph was not among them.
-‎
-‎Emilio closed the laptop.
-‎
-‎He sat in the darkness until morning.
-‎
-‎At 5:30, he took a shower.
-‎
-‎At 5:45, he changed into the best clothes he owned.
-‎
-‎At 5:52, he stood in front of the mirror.
-‎
-‎He looked ordinary.
-‎
-‎Tired.
-‎
-‎A little thinner than he remembered.
-‎
-‎He looked like a man who had spent too much time waiting for his life to begin.
-‎
-‎He took the printed photograph and slipped it into his jacket.
-‎
-‎Then he checked his phone.
-‎
-‎No new messages.
-‎
-‎He locked the apartment and stepped outside.
-‎
-‎The address was about twenty minutes away.
-‎
-‎He could still turn around.
-‎
-‎He could go home, delete the number, and pretend none of this had happened.
-‎
-‎He could return to the same apartment, the same unpaid bills, the same applications, the same life.
-‎
-‎He could remain exactly where he was.
-‎
-‎The thought should have comforted him.
-‎
-‎It did not.
-‎
-‎At 5:58, Emilio reached the building.
-‎
-‎It was an ordinary commercial property.
-‎
-‎Glass doors.
-‎
-‎A reception desk.
-‎
-‎A security guard reading something on his phone.
-‎
-‎Nothing about it suggested anything unusual.
-‎
-‎Emilio checked the address again.
-‎
-‎Correct.
-‎
-‎He entered.
-‎
-‎The security guard looked up.
-‎
-‎"Good evening."
-‎
-‎"Good evening. I'm here to see someone."
-‎
-‎"Name?"
-‎
-‎"Mr. Vale."
-‎
-‎The guard looked at his screen.
-‎
-‎Then he looked at Emilio.
-‎
-‎For a moment, his expression changed.
-‎
-‎Not surprise.
-‎
-‎Recognition.
-‎
-‎He picked up a telephone.
-‎
-‎"He's here."
-‎
-‎A pause.
-‎
-‎"Yes."
-‎
-‎He put the receiver down.
-‎
-‎"Third floor. Room 307."
-‎
-‎Emilio nodded.
-‎
-‎"Thank you."
-‎
-‎He walked toward the elevator.
-‎
-‎As the doors closed, he noticed a small security camera above the reception desk.
-‎
-‎Its red light was blinking.
-‎
-‎He watched it until the doors met.
-‎
-‎The elevator began moving.
-‎
-‎Third floor.
-‎
-‎The doors opened.
-‎
-‎A quiet corridor stretched ahead of him.
-‎
-‎There were several offices, most of them dark.
-‎
-‎At the far end was a door.
-‎
-‎307.
-‎
-‎Emilio walked toward it.
-‎
-‎He stopped outside.
-‎
-‎He could hear nothing.
-‎
-‎He looked at his watch.
-‎
-‎5:59.
-‎
-‎He raised his hand and knocked.
-‎
-‎Once.
-‎
-‎Twice.
-‎
-‎The door opened before he could knock a third time.
-‎
-‎A man stood on the other side.
-‎
-‎Tall.
-‎
-‎Dark suit.
-‎
-‎Silver watch.
-‎
-‎Black face.
-‎
-‎Emilio recognized him immediately.
-‎
-‎The man from the photograph.
-‎
-‎The man who had stood in the background five years earlier.
-‎
-‎The man who had disappeared from his phone.
-‎
-‎The man who had been watching him before Emilio even knew he existed.
-‎
-‎He looked exactly the same.
-‎
-‎Not older.
-‎
-‎Not younger.
-‎
-‎Exactly the same.
-‎
-‎His expression was calm.
-‎
-‎Almost welcoming.
-‎
-‎"Emilio," he said.
-‎
-‎Emilio could not speak.
-‎
-‎The man stepped aside.
-‎
-‎"Please. Come in."
-‎
-‎Emilio remained where he was.
-‎
-‎The man glanced briefly at the photograph in Emilio's hand.
-‎
-‎Then he smiled.
-‎
-‎Not warmly.
-‎
-‎Not cruelly.
-‎
-‎As though something had finally arrived exactly when it was expected.
-‎
-‎"You're right on time."
-‎
-‎Emilio looked at the man's watch.
-‎
-‎6:00.
-‎
-‎He had not noticed the minute changing.
-‎
-‎The man extended his hand.
-‎
-‎"Mr. Vale."
-‎
-‎Emilio did not take it.
-‎
-‎Vale did not seem offended.
-‎
-‎Instead, he looked at Emilio for a moment, studying him with an expression that was difficult to interpret.
-‎
-‎Then he asked a question.
-‎
-‎"Tell me, Emilio. What is it that you want?"
-‎
-‎The question was simple.
-‎
-‎Too simple.
-‎
-‎Emilio had imagined this meeting a dozen times during the night. He had prepared questions. He had prepared accusations. He had even prepared to walk away.
-‎
-‎But now, standing in front of the man from the photograph, he could not remember a single one.
-‎
-‎He looked at the office behind Vale.
-‎
-‎A large desk.
-‎
-‎Two chairs.
-‎
-‎A glass of water.
-‎
-‎A folder bearing his name.
-‎
-‎His full name.
-‎
-‎Emilio stared at it.
-‎
-‎Vale noticed.
-‎
-‎"Please," he said. "Sit down."
-‎
-‎Emilio stepped inside.
-‎
-‎The door closed behind him.
-‎
-‎And somewhere, in a place he could not see, a clock began ticking.`;
-‎
-‎const CHAPTER_TWO_TEXT = `[ Chapter Two has not been written yet.
-‎
-‎Open the novel with the ⚙ button and paste your Chapter Two text into the editor. Everything you type here will appear exactly as you formatted it, inside the reader — with all the font, colour and dark/light settings applied. ]`;
-‎
-‎function seedNovels() {
-‎  return [{
-‎    id: uid(),
-‎    title: "THE DEVIL DOESN'T BARGAIN",
-‎    cover: '',
-‎    createdAt: Date.now(),
-‎    chapters: [
-‎      { title: 'Chapter One — A Man Nobody Remembered', content: CHAPTER_ONE_TEXT },
-‎      { title: 'Chapter Two — The Cost of Being Nobody', content: CHAPTER_TWO_TEXT }
-‎    ]
-‎  }];
-‎}
-‎
-‎/* =====================================================================
-‎   BOOT
-‎   ===================================================================== */
-‎document.addEventListener('DOMContentLoaded', init);
-‎
-‎function init() {
-‎  loadTheme();
-‎  loadPrefs();
-‎  buildQuotes();
-‎  loadNovels();
-‎  bindEvents();
-‎
-‎  if (safeGet(KEY_AUTH, false) === true) {
-‎    showApp();
-‎  } else {
-‎    $('#loginScreen').classList.remove('hidden');
-‎    $('#app').classList.add('hidden');
-‎    setTimeout(() => $('#loginName').focus(), 400);
-‎  }
-‎}
-‎
-‎/* =====================================================================
-‎   THEME (dark / light)
-‎   ===================================================================== */
-‎function loadTheme() {
-‎  const saved = safeGet(KEY_THEME, 'dark');
-‎  document.body.classList.toggle('dark', saved === 'dark');
-‎  $('#themeToggle').textContent = saved === 'dark' ? '🌙' : '☀️';
-‎}
-‎
-‎function toggleTheme() {
-‎  const isDark = document.body.classList.toggle('dark');
-‎  safeSet(KEY_THEME, isDark ? 'dark' : 'light');
-‎  $('#themeToggle').textContent = isDark ? '🌙' : '☀️';
-‎}
-‎
-‎/* =====================================================================
-‎   QUOTES MARQUEE
-‎   ===================================================================== */
-‎function buildQuotes() {
-‎  const track = $('#quotesTrack');
-‎  const html = QUOTES.map(q => `<span>${esc(q)}</span>`).join('');
-‎  track.innerHTML = html + html; /* duplicated for a seamless loop */
-‎}
-‎
-‎/* =====================================================================
-‎   AUTH
-‎   ===================================================================== */
-‎function bindLogin() {
-‎  $('#loginForm').addEventListener('submit', (e) => {
-‎    e.preventDefault();
-‎    const name = $('#loginName').value.trim();
-‎    const pass = $('#loginPass').value;
-‎    const err = $('#loginError');
-‎    const card = $('.login-card');
-‎
-‎    const nameOk = name.toLowerCase() === CREDENTIALS.name.toLowerCase();
-‎    const passOk = pass === CREDENTIALS.password;
-‎
-‎    if (nameOk && passOk) {
-‎      err.textContent = '';
-‎      safeSet(KEY_AUTH, true);
-‎      card.style.transition = 'transform .45s ease, opacity .45s ease';
-‎      card.style.transform = 'scale(.94)';
-‎      card.style.opacity = '0';
-‎      setTimeout(showApp, 380);
-‎    } else {
-‎      err.textContent = 'Incorrect name or password. Try again.';
-‎      card.classList.remove('shake');
-‎      void card.offsetWidth;
-‎      card.classList.add('shake');
-‎      $('#loginPass').value = '';
-‎      $('#loginPass').focus();
-‎    }
-‎  });
-‎
-‎  $('#togglePass').addEventListener('click', () => {
-‎    const p = $('#loginPass');
-‎    p.type = p.type === 'password' ? 'text' : 'password';
-‎    $('#togglePass').textContent = p.type === 'password' ? '👁' : '🙈';
-‎  });
-‎}
-‎
-‎function showApp() {
-‎  $('#loginScreen').classList.add('hidden');
-‎  $('#app').classList.remove('hidden');
-‎  renderLibrary();
-‎}
-‎
-‎function logout() {
-‎  localStorage.removeItem(KEY_AUTH);
-‎  location.reload();
-‎}
-‎
-‎/* =====================================================================
-‎   NOVEL STORAGE
-‎   ===================================================================== */
-‎function loadNovels() {
-‎  const stored = safeGet(KEY_DATA, null);
-‎  if (Array.isArray(stored) && stored.length) {
-‎    novels = stored;
-‎  } else {
-‎    novels = seedNovels();
-‎    persist();
-‎  }
-‎}
-‎
-‎function persist() {
-‎  const ok = safeSet(KEY_DATA, novels);
-‎  if (!ok) {
-‎    alert('Storage is full! Try using smaller cover images or image links instead of uploads.');
-‎  }
-‎}
-‎
-‎function getNovel(id) { return novels.find(n => n.id === id); }
-‎
-‎/* =====================================================================
-‎   LIBRARY RENDER
-‎   ===================================================================== */
-‎function renderLibrary() {
-‎  const grid = $('#bookGrid');
-‎  const empty = $('#emptyState');
-‎  grid.innerHTML = '';
-‎
-‎  $('#shelfCount').textContent =
-‎    novels.length === 0 ? 'No novels yet'
-‎      : `${novels.length} novel${novels.length > 1 ? 's' : ''} on your shelf`;
-‎
-‎  empty.classList.toggle('hidden', novels.length !== 0);
-‎
-‎  novels.forEach((n, i) => {
-‎    const card = document.createElement('article');
-‎    card.className = 'book-card';
+
+There were still only three names.
+
+The man in the photograph was not among them.
+
+Emilio closed the laptop.
+
+He sat in the darkness until morning.
+
+At 5:30, he took a shower.
+
+At 5:45, he changed into the best clothes he owned.
+
+At 5:52, he stood in front of the mirror.
+
+He looked ordinary.
+
+Tired.
+
+A little thinner than he remembered.
+
+He looked like a man who had spent too much time waiting for his life to begin.
+
+He took the printed photograph and slipped it into his jacket.
+
+Then he checked his phone.
+
+No new messages.
+
+He locked the apartment and stepped outside.
+
+The address was about twenty minutes away.
+
+He could still turn around.
+
+He could go home, delete the number, and pretend none of this had happened.
+
+He could return to the same apartment, the same unpaid bills, the same applications, the same life.
+
+He could remain exactly where he was.
+
+The thought should have comforted him.
+
+It did not.
+
+At 5:58, Emilio reached the building.
+
+It was an ordinary commercial property.
+
+Glass doors.
+
+A reception desk.
+
+A security guard reading something on his phone.
+
+Nothing about it suggested anything unusual.
+
+Emilio checked the address again.
+
+Correct.
+
+He entered.
+
+The security guard looked up.
+
+"Good evening."
+
+"Good evening. I'm here to see someone."
+
+"Name?"
+
+"Mr. Vale."
+
+The guard looked at his screen.
+
+Then he looked at Emilio.
+
+For a moment, his expression changed.
+
+Not surprise.
+
+Recognition.
+
+He picked up a telephone.
+
+"He's here."
+
+A pause.
+
+"Yes."
+
+He put the receiver down.
+
+"Third floor. Room 307."
+
+Emilio nodded.
+
+"Thank you."
+
+He walked toward the elevator.
+
+As the doors closed, he noticed a small security camera above the reception desk.
+
+Its red light was blinking.
+
+He watched it until the doors met.
+
+The elevator began moving.
+
+Third floor.
+
+The doors opened.
+
+A quiet corridor stretched ahead of him.
+
+There were several offices, most of them dark.
+
+At the far end was a door.
+
+307.
+
+Emilio walked toward it.
+
+He stopped outside.
+
+He could hear nothing.
+
+He looked at his watch.
+
+5:59.
+
+He raised his hand and knocked.
+
+Once.
+
+Twice.
+
+The door opened before he could knock a third time.
+
+A man stood on the other side.
+
+Tall.
+
+Dark suit.
+
+Silver watch.
+
+Black face.
+
+Emilio recognized him immediately.
+
+The man from the photograph.
+
+The man who had stood in the background five years earlier.
+
+The man who had disappeared from his phone.
+
+The man who had been watching him before Emilio even knew he existed.
+
+He looked exactly the same.
+
+Not older.
+
+Not younger.
+
+Exactly the same.
+
+His expression was calm.
+
+Almost welcoming.
+
+"Emilio," he said.
+
+Emilio could not speak.
+
+The man stepped aside.
+
+"Please. Come in."
+
+Emilio remained where he was.
+
+The man glanced briefly at the photograph in Emilio's hand.
+
+Then he smiled.
+
+Not warmly.
+
+Not cruelly.
+
+As though something had finally arrived exactly when it was expected.
+
+"You're right on time."
+
+Emilio looked at the man's watch.
+
+6:00.
+
+He had not noticed the minute changing.
+
+The man extended his hand.
+
+"Mr. Vale."
+
+Emilio did not take it.
+
+Vale did not seem offended.
+
+Instead, he looked at Emilio for a moment, studying him with an expression that was difficult to interpret.
+
+Then he asked a question.
+
+"Tell me, Emilio. What is it that you want?"
+
+The question was simple.
+
+Too simple.
+
+Emilio had imagined this meeting a dozen times during the night. He had prepared questions. He had prepared accusations. He had even prepared to walk away.
+
+But now, standing in front of the man from the photograph, he could not remember a single one.
+
+He looked at the office behind Vale.
+
+A large desk.
+
+Two chairs.
+
+A glass of water.
+
+A folder bearing his name.
+
+His full name.
+
+Emilio stared at it.
+
+Vale noticed.
+
+"Please," he said. "Sit down."
+
+Emilio stepped inside.
+
+The door closed behind him.
+
+And somewhere, in a place he could not see, a clock began ticking.`;
+
+const CHAPTER_TWO_TEXT = `[ Chapter Two has not been written yet.
+
+Open the novel with the ⚙ button and paste your Chapter Two text into the editor. Everything you type here will appear exactly as you formatted it, inside the reader — with all the font, colour and dark/light settings applied. ]`;
+
+function seedNovels() {
+  return [{
+    id: uid(),
+    title: "THE DEVIL DOESN'T BARGAIN",
+    cover: '',
+    createdAt: Date.now(),
+    chapters: [
+      { title: 'Chapter One — A Man Nobody Remembered', content: CHAPTER_ONE_TEXT },
+      { title: 'Chapter Two — The Cost of Being Nobody', content: CHAPTER_TWO_TEXT }
+    ]
+  }];
+}
+
+/* =====================================================================
+   BOOT  (robust — survives if one step fails)
+   ===================================================================== */
+function init() {
+  try { loadTheme(); }  catch (e) { console.error('loadTheme:', e); }
+  try { loadPrefs(); }  catch (e) { console.error('loadPrefs:', e); }
+  try { buildQuotes(); }catch (e) { console.error('buildQuotes:', e); }
+  try { loadNovels(); } catch (e) { console.error('loadNovels:', e); }
+  try { bindEvents(); } catch (e) { console.error('bindEvents:', e); }
+
+  if (safeGet(KEY_AUTH, false) === true) {
+    showApp();
+  } else {
+    const ls = document.getElementById('loginScreen');
+    const ap = document.getElementById('app');
+    if (ls) ls.classList.remove('hidden');
+    if (ap) ap.classList.add('hidden');
+    setTimeout(() => {
+      const n = document.getElementById('loginName');
+      if (n) n.focus();
+    }, 400);
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+/* =====================================================================
+   THEME
+   ===================================================================== */
+function loadTheme() {
+  const saved = safeGet(KEY_THEME, 'dark');
+  document.body.classList.toggle('dark', saved === 'dark');
+  const t = $('#themeToggle');
+  if (t) t.textContent = saved === 'dark' ? '🌙' : '☀️';
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  safeSet(KEY_THEME, isDark ? 'dark' : 'light');
+  const t = $('#themeToggle');
+  if (t) t.textContent = isDark ? '🌙' : '☀️';
+}
+
+/* =====================================================================
+   QUOTES
+   ===================================================================== */
+function buildQuotes() {
+  const track = $('#quotesTrack');
+  if (!track) return;
+  const html = QUOTES.map(q => `<span>${esc(q)}</span>`).join('');
+  track.innerHTML = html + html;
+}
+
+/* =====================================================================
+   APP SHOW / LOGOUT
+   ===================================================================== */
+function showApp() {
+  const ls = document.getElementById('loginScreen');
+  const ap = document.getElementById('app');
+  if (ls) ls.classList.add('hidden');
+  if (ap) ap.classList.remove('hidden');
+  renderLibrary();
+}
+
+function logout() {
+  localStorage.removeItem(KEY_AUTH);
+  location.reload();
+}
+
+/* =====================================================================
+   NOVEL STORAGE
+   ===================================================================== */
+function loadNovels() {
+  const stored = safeGet(KEY_DATA, null);
+  if (Array.isArray(stored) && stored.length) {
+    novels = stored;
+  } else {
+    novels = seedNovels();
+    persist();
+  }
+}
+
+function persist() {
+  const ok = safeSet(KEY_DATA, novels);
+  if (!ok) {
+    alert('Storage is full! Try using smaller cover images or image links instead of uploads.');
+  }
+}
+
+function getNovel(id) { return novels.find(n => n.id === id); }
+
+/* =====================================================================
+   LIBRARY RENDER
+   ===================================================================== */
+function renderLibrary() {
+  const grid = $('#bookGrid');
+  const empty = $('#emptyState');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  const count = $('#shelfCount');
+  if (count) {
+    count.textContent = novels.length === 0
+      ? 'No novels yet'
+      : novels.length + ' novel' + (novels.length > 1 ? 's' : '') + ' on your shelf';
+  }
+
+  if (empty) empty.classList.toggle('hidden', novels.length !== 0);
+
+  novels.forEach((n, i) => {
+    const card = document.createElement('article');
+    card.className = 'book-card';
     card.dataset.id = n.id;
-    card.style.animationDelay = `${i * 55}ms`;
+    card.style.animationDelay = (i * 55) + 'ms';
 
     const coverHTML = n.cover
-      ? `<img src="${esc(n.cover)}" alt="${esc(n.title)} cover"
-              onerror="this.style.display='none';this.parentNode.insertAdjacentHTML('afterbegin','<div class=\\'ph-cover\\' style=\\'--h:${hashStr(n.title)}\\'><span>${esc(initials(n.title))}</span></div>')">`
-      : `<div class="ph-cover" style="--h:${hashStr(n.title)}"><span>${esc(initials(n.title))}</span></div>`;
+      ? '<img src="' + esc(n.cover) + '" alt="' + esc(n.title) + ' cover">'
+      : '<div class="ph-cover" style="--h:' + hashStr(n.title) + '"><span>' + esc(initials(n.title)) + '</span></div>';
 
-    card.innerHTML = `
-      <div class="book-cover">${coverHTML}</div>
-      <div class="book-info">
-        <h3 class="book-title" data-role="title">${esc(n.title)}</h3>
-        <span class="chapter-count">${n.chapters.length} chapter${n.chapters.length !== 1 ? 's' : ''}</span>
-      </div>
-      <div class="card-tools">
-        <button data-act="rename" title="Rename book">✎</button>
-        <button data-act="edit"   title="Edit novel & chapters">⚙</button>
-        <button data-act="delete" title="Delete novel">🗑</button>
-      </div>
-    `;
+    card.innerHTML =
+      '<div class="book-cover">' + coverHTML + '</div>' +
+      '<div class="book-info">' +
+        '<h3 class="book-title" data-role="title">' + esc(n.title) + '</h3>' +
+        '<span class="chapter-count">' + n.chapters.length + ' chapter' + (n.chapters.length !== 1 ? 's' : '') + '</span>' +
+      '</div>' +
+      '<div class="card-tools">' +
+        '<button data-act="rename" title="Rename book">✎</button>' +
+        '<button data-act="edit"   title="Edit novel & chapters">⚙</button>' +
+        '<button data-act="delete" title="Delete novel">🗑</button>' +
+      '</div>';
 
     grid.appendChild(card);
   });
 
-  /* Add-novel tile */
   const tile = document.createElement('button');
   tile.className = 'add-tile';
-  tile.innerHTML = `＋<small>Add Novel</small>`;
-  tile.style.animationDelay = `${novels.length * 55}ms`;
+  tile.innerHTML = '＋<small>Add Novel</small>';
+  tile.style.animationDelay = (novels.length * 55) + 'ms';
   tile.addEventListener('click', () => openModal(null));
   grid.appendChild(tile);
 }
-‎    
+
+/* =====================================================================
+   CARD INTERACTIONS
+   ===================================================================== */
+function bindGridEvents() {
+  const grid = $('#bookGrid');
+  if (!grid) return;
+
+  grid.addEventListener('click', (e) => {
+    const card = e.target.closest('.book-card');
+    if (!card) return;
+    const id = card.dataset.id;
+    const btn = e.target.closest('button[data-act]');
+    const titleEl = e.target.closest('[data-role="title"]');
+
+    if (btn) {
+      e.stopPropagation();
+      const act = btn.dataset.act;
+      if (act === 'edit')   openModal(id);
+      if (act === 'delete') deleteNovel(id);
+      if (act === 'rename') startRename(titleEl);
+      return;
+    }
+
+    if (titleEl && titleEl.isContentEditable) return;
+    openReader(id);
+  });
+
+  grid.addEventListener('keydown', (e) => {
+    const t = e.target.closest('[data-role="title"]');
+    if (!t || !t.isContentEditable) return;
+    if (e.key === 'Enter') { e.preventDefault(); t.blur(); }
+    if (e.key === 'Escape') { t.textContent = t.dataset.original; t.blur(); }
+  });
+
+  grid.addEventListener('focusout', (e) => {
+    const t = e.target.closest('[data-role="title"]');
+    if (!t || !t.isContentEditable) return;
+    commitRename(t);
+  });
+}
+
+function startRename(titleEl) {
+  if (!titleEl) return;
+  titleEl.dataset.original = titleEl.textContent;
+  titleEl.contentEditable = 'true';
+  titleEl.focus();
+  const range = document.createRange();
+  range.selectNodeContents(titleEl);
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+}
+
+function commitRename(titleEl) {
+  titleEl.contentEditable = 'false';
+  const card = titleEl.closest('.book-card');
+  const n = getNovel(card.dataset.id);
+  if (!n) return;
+  const newTitle = titleEl.textContent.trim() || n.title;
+  titleEl.textContent = newTitle;
+  if (newTitle !== n.title) {
+    n.title = newTitle;
+    persist();
+    renderLibrary();
+  }
+}
+
+function deleteNovel(id) {
+  const n = getNovel(id);
+  if (!n) return;
+  if (!confirm('Delete "' + n.title + '" permanently?')) return;
+  novels = novels.filter(x => x.id !== id);
+  persist();
+  renderLibrary();
+}
+
+/* =====================================================================
+   MODAL
+   ===================================================================== */
+function openModal(id) {
+  editingNovelId = id || null;
+  pendingCover = '';
+  const novel = id ? getNovel(id) : null;
+
+  $('#modalTitle').textContent = novel ? 'Edit Novel' : 'Add Novel';
+  $('#fTitle').value = novel ? novel.title : '';
+  $('#fUrl').value = (novel && novel.cover && !novel.cover.startsWith('data:')) ? novel.cover : '';
+  $('#fFile').value = '';
+  $('#chaptersWrap').innerHTML = '';
+
+  pendingCover = novel ? (novel.cover || '') : '';
+  updateCoverPreview();
+
+  const chapters = (novel && novel.chapters.length)
+    ? novel.chapters
+    : [{ title: 'Chapter One', content: '' }];
+
+  chapters.forEach(ch => addChapterBlock(ch.title, ch.content));
+  $('#modal').classList.remove('hidden');
+  setTimeout(() => $('#fTitle').focus(), 150);
+}
+
+function closeModal() {
+  $('#modal').classList.add('hidden');
+  editingNovelId = null;
+  pendingCover = '';
+}
+
+function addChapterBlock(title, content) {
+  title = title || '';
+  content = content || '';
+  const wrap = $('#chaptersWrap');
+  const idx = wrap.children.length + 1;
+  const block = document.createElement('div');
+  block.className = 'chapter-block';
+  block.innerHTML =
+    '<div class="ch-head">' +
+      '<input class="ch-title" type="text" placeholder="Chapter ' + idx + ' — Title" value="' + esc(title) + '" />' +
+      '<button class="ch-del" title="Remove chapter">✕</button>' +
+    '</div>' +
+    '<textarea class="ch-content" placeholder="Paste the chapter text here...">' + esc(content) + '</textarea>';
+
+  block.querySelector('.ch-del').addEventListener('click', () => {
+    if (wrap.children.length === 1) {
+      block.querySelector('.ch-content').value = '';
+      block.querySelector('.ch-title').value = '';
+      return;
+    }
+    block.remove();
+  });
+  wrap.appendChild(block);
+}
+
+function updateCoverPreview() {
+  const box = $('#coverPreview');
+  if (!box) return;
+  box.innerHTML = pendingCover
+    ? '<img src="' + esc(pendingCover) + '" alt="Cover preview">'
+    : '<span class="muted">Cover preview</span>';
+}
+
+function fileToCover(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const MAX = 700;
+        let w = img.width, h = img.height;
+        if (w > MAX) { h = Math.round(h * MAX / w); w = MAX; }
+        if (h > MAX * 1.5) { w = Math.round(w * (MAX * 1.5) / h); h = Math.round(MAX * 1.5); }
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        c.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(c.toDataURL('image/jpeg', 0.82));
+      };
+      img.onerror = reject;
+      img.src = reader.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function saveNovel() {
+  const title = $('#fTitle').value.trim() || 'Untitled Novel';
+  const url = $('#fUrl').value.trim();
+  if (url) pendingCover = url;
+
+  const chapters = Array.prototype.slice
+    .call($('#chaptersWrap').querySelectorAll('.chapter-block'))
+    .map(b => ({
+      title: b.querySelector('.ch-title').value.trim() || 'Untitled Chapter',
+      content: b.querySelector('.ch-content').value
+    }));
+
+  if (!chapters.length) chapters.push({ title: 'Chapter One', content: '' });
+
+  if (editingNovelId) {
+    const n = getNovel(editingNovelId);
+    if (n) {
+      n.title = title;
+      n.cover = pendingCover;
+      n.chapters = chapters;
+    }
+  } else {
+    novels.unshift({
+      id: uid(), title, cover: pendingCover,
+      createdAt: Date.now(), chapters
+    });
+  }
+
+  persist();
+  renderLibrary();
+  closeModal();
+}
+
+/* =====================================================================
+   READER
+   ===================================================================== */
+function openReader(id) {
+  const n = getNovel(id);
+  if (!n || !n.chapters.length) return;
+  currentNovelId = id;
+  currentChapterIndex = 0;
+  $('#reader').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  renderChapter();
+}
+
+function closeReader() {
+  $('#reader').classList.add('hidden');
+  document.body.style.overflow = '';
+  currentNovelId = null;
+}
+
+function renderChapter() {
+  const n = getNovel(currentNovelId);
+  if (!n) return;
+  const ch = n.chapters[currentChapterIndex] || { title: '', content: '' };
+
+  const coverEl = $('#readerCover');
+  coverEl.innerHTML = n.cover
+    ? '<img src="' + esc(n.cover) + '" alt="' + esc(n.title) + ' cover">'
+    : '<div class="ph-cover" style="--h:' + hashStr(n.title) + ';width:100%;height:100%"><span>' + esc(initials(n.title)) + '</span></div>';
+
+  $('#readerTitle').textContent = n.title.toUpperCase();
+  $('#readerChapter').textContent = ch.title;
+  $('#toolbarTitle').textContent = n.title;
+
+  const content = (ch.content || '').trim();
+  const contentEl = $('#readerContent');
+  if (!content) {
+    contentEl.innerHTML = '<p style="text-align:center;opacity:.6;font-style:italic">This chapter is still empty.</p>';
+  } else {
+    contentEl.innerHTML = content
+      .split(/\n{2,}/)
+      .map(p => '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>')
+      .join('');
+  }
+
+  $('#prevChapter').disabled = currentChapterIndex === 0;
+  $('#nextChapter').disabled = currentChapterIndex >= n.chapters.length - 1;
+  $('#chapterIndicator').textContent = 'Chapter ' + (currentChapterIndex + 1) + ' of ' + n.chapters.length;
+
+  var scroller = document.querySelector('.reader-scroll');
+  if (scroller) scroller.scrollTop = 0;
+  applyPrefs();
+}
+
+function gotoChapter(dir) {
+  const n = getNovel(currentNovelId);
+  if (!n) return;
+  const next = currentChapterIndex + dir;
+  if (next < 0 || next >= n.chapters.length) return;
+  currentChapterIndex = next;
+  renderChapter();
+}
+
+/* ------------------------- Reader preferences ------------------------- */
+function loadPrefs() {
+  const saved = safeGet(KEY_PREFS, null);
+  if (saved && typeof saved === 'object') prefs = Object.assign({}, prefs, saved);
+  const fs = $('#fontSelect');
+  if (fs) fs.value = (prefs.font in FONT_MAP) ? prefs.font : 'georgia';
+  $$('#swatches .swatch').forEach(s =>
+    s.classList.toggle('active', s.dataset.theme === prefs.theme));
+}
+
+function savePrefs() { safeSet(KEY_PREFS, prefs); }
+
+function applyPrefs() {
+  const art = $('#readerArticle');
+  if (!art) return;
+  art.style.setProperty('--reader-font', FONT_MAP[prefs.font] || FONT_MAP.georgia);
+  art.style.setProperty('--reader-size', prefs.size + 'px');
+  art.style.setProperty('--reader-style', prefs.font === 'italic' ? 'italic' : 'normal');
+  art.dataset.theme = prefs.theme;
+  $$('#swatches .swatch').forEach(s =>
+    s.classList.toggle('active', s.dataset.theme === prefs.theme));
+}
+
+/* =====================================================================
+   EVENT BINDING
+   ===================================================================== */
+function bindEvents() {
+  // NOTE: Login + eye toggle use inline handlers in index.html — no binding here.
+
+  bindGridEvents();
+
+  $('#themeToggle').addEventListener('click', toggleTheme);
+
+  $('#logoutBtn').addEventListener('click', () => {
+    if (confirm('Log out of Novel Vault?')) logout();
+  });
+  $('#addNovelBtn').addEventListener('click', () => openModal(null));
+
+  $('#closeModal').addEventListener('click', closeModal);
+  $('#cancelModal').addEventListener('click', closeModal);
+  $('#saveNovel').addEventListener('click', saveNovel);
+  $('#addChapterBtn').addEventListener('click', () => {
+    addChapterBlock('', '');
+    const blocks = $('#chaptersWrap').querySelectorAll('.chapter-block');
+    blocks[blocks.length - 1].querySelector('.ch-title').focus();
+  });
+
+  $('#modal').addEventListener('click', (e) => {
+    if (e.target.id === 'modal') closeModal();
+  });
+
+  $('#fFile').addEventListener('change', async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    try {
+      pendingCover = await fileToCover(file);
+      $('#fUrl').value = '';
+      updateCoverPreview();
+    } catch (err) {
+      alert('That image could not be read. Please try another file.');
+    }
+  });
+
+  $('#fUrl').addEventListener('input', (e) => {
+    const v = e.target.value.trim();
+    if (v) { pendingCover = v; updateCoverPreview(); }
+  });
+
+  $('#readerBack').addEventListener('click', closeReader);
+  $('#prevChapter').addEventListener('click', () => gotoChapter(-1));
+  $('#nextChapter').addEventListener('click', () => gotoChapter(1));
+
+  $('#fontSelect').addEventListener('change', (e) => {
+    prefs.font = e.target.value;
+    savePrefs(); applyPrefs();
+  });
+
+  $('#fontUp').addEventListener('click', () => {
+    prefs.size = Math.min(34, prefs.size + 1);
+    savePrefs(); applyPrefs();
+  });
+  $('#fontDown').addEventListener('click', () => {
+    prefs.size = Math.max(13, prefs.size - 1);
+    savePrefs(); applyPrefs();
+  });
+
+  $$('#swatches .swatch').forEach(sw => {
+    sw.addEventListener('click', () => {
+      prefs.theme = sw.dataset.theme;
+      savePrefs(); applyPrefs();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (!$('#modal').classList.contains('hidden')) closeModal();
+      else if (!$('#reader').classList.contains('hidden')) closeReader();
+    }
+    if (!$('#reader').classList.contains('hidden')) {
+      if (e.key === 'ArrowRight') gotoChapter(1);
+      if (e.key === 'ArrowLeft')  gotoChapter(-1);
+    }
+  });
+}
