@@ -1926,6 +1926,8 @@ function bindEvents() {
   $('#readerBack').addEventListener('click', closeReader);
 $('#prevPage').addEventListener('click', () => turnPage('prev'));
 $('#nextPage').addEventListener('click', () => turnPage('next'));
+$('#pageZoneLeft').addEventListener('dblclick',  () => turnPage('prev'));
+$('#pageZoneRight').addEventListener('dblclick', () => turnPage('next'));
 // Touch swipe — only fires on a deliberate horizontal swipe,
 // never on a vertical scroll
 let touchStartX = 0;
