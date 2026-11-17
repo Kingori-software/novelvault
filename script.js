@@ -5,7 +5,7 @@
 window.__novelVaultLoaded = true;   // ← diagnostic flag
 
 /* ----------------------------- Constants ----------------------------- */
-const CREDENTIALS = { name: 'StoryBloom', password: 'ILoveNovels##01' };
+const CREDENTIALS = { name: 'StoryBloom', password: 'LoveNovels##01' };
 
 const KEY_AUTH  = 'novelVault.auth';
 const KEY_DATA  = 'novelVault.novels';
