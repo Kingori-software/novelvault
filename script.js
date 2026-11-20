@@ -3142,7 +3142,7 @@ Then he closed the folder.
 
 He placed it beneath the others.
 
-And for the first time that night, he looked genuinely displeased.';
+And for the first time that night, he looked genuinely displeased.
 
 END OF CHAPTER TWO 
 
