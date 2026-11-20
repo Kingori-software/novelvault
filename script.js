@@ -1195,7 +1195,7 @@ Emilio stepped inside.
 The door closed behind him.
 
 And somewhere, in a place he could not see, a clock began ticking.`;
-
+=========================================================================================================================================================
 const CHAPTER_TWO_TEXT = `
 PART ONE
 THE MAN BEHIND THE DOOR
@@ -3141,9 +3141,9 @@ Then he closed the folder.
 
 He placed it beneath the others.
 
-And for the first time that night, he looked genuinely displeased.
+And for the first time that night, he looked genuinely displeased.';
 
-END OF CHAPTER TWO
+END OF CHAPTER TWO 
 
 NEXT:
 CHAPTER THREE — MR. VALE`;
