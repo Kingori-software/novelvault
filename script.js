@@ -3238,7 +3238,13 @@ function init() {
   if (safeGet(KEY_AUTH, false) === true) showApp();
   else showLogin();
 }
-
+function showApp() {
+  const ls = document.getElementById('loginScreen');
+  const ap = document.getElementById('app');
+  if (ls) ls.classList.add('hidden');
+  if (ap) ap.classList.remove('hidden');
+  renderLibrary();
+}
   if (safeGet(KEY_AUTH, false) === true) {
     showApp();
   } else {
