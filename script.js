@@ -3151,8 +3151,7 @@ CHAPTER THREE — MR. VALE`;
 // THE LAST ROSE OF ASHFORD
 // ==========================================
 
-const ASHFORD_CHAPTER_ONE = `UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD
-`;
+const ASHFORD_CHAPTER_ONE = `Hello there this is The New Novel`;
 
 const ASHFORD_CHAPTER_TWO = `UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD`;
 
@@ -3191,7 +3190,7 @@ function seedNovels() {
 
   chapters: [
     {
-      title: 'Chapter One',
+      title: 'The Grey Morning',
       content: ASHFORD_CHAPTER_ONE
     },
     {
