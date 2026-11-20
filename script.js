@@ -3147,6 +3147,19 @@ END OF CHAPTER TWO
 NEXT:
 CHAPTER THREE — MR. VALE`;
 
+// ==========================================
+// THE LAST ROSE OF ASHFORD
+// ==========================================
+
+const ASHFORD_CHAPTER_ONE = `UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD
+`;
+
+const ASHFORD_CHAPTER_TWO = `UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD`;
+
+const ASHFORD_CHAPTER_THREE = `
+UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD
+`;
+
 function seedNovels() {
   return [
 
@@ -3169,22 +3182,28 @@ function seedNovels() {
     },
 
     // NOVEL TWO
+    
+{
+  id: uid(),
+  title: "THE LAST ROSE OF ASHFORD",
+  cover: '',
+  createdAt: Date.now(),
+
+  chapters: [
     {
-      id: uid(),
-      title: "THE LAST ROSE OF ASHFORD",
-      cover: '',
-      createdAt: Date.now(),
-      chapters: [
-        {
-          title: 'Chapter One — The Beginning',
-          content: ASHFORD_CHAPTER_ONE
-        },
-        {
-          title: 'Chapter Two — The Secret',
-          content: ASHFORD_CHAPTER_TWO
-        }
-      ]
+      title: 'Chapter One',
+      content: ASHFORD_CHAPTER_ONE
     },
+    {
+      title: 'Chapter Two',
+      content: ASHFORD_CHAPTER_TWO
+    },
+    {
+      title: 'Chapter Three',
+      content: ASHFORD_CHAPTER_THREE
+    }
+  ]
+},
 
     // NOVEL THREE
     {
