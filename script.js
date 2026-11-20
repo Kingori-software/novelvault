@@ -3161,8 +3161,6 @@ UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD
 
 function seedNovels() {
   return [
-
-    // NOVEL ONE
     {
       id: uid(),
       title: "THE DEVIL DOESN'T BARGAIN",
@@ -3179,49 +3177,26 @@ function seedNovels() {
         }
       ]
     },
-
-    // NOVEL TWO
-    
-{
-  id: uid(),
-  title: "THE LAST ROSE OF ASHFORD",
-  cover: '',
-  createdAt: Date.now(),
-
-  chapters: [
-    {
-      title: 'The Grey Morning',
-      content: ASHFORD_CHAPTER_ONE
-    },
-    {
-      title: 'Chapter Two',
-      content: ASHFORD_CHAPTER_TWO
-    },
-    {
-      title: 'Chapter Three',
-      content: ASHFORD_CHAPTER_THREE
-    }
-  ]
-},
-
-    // NOVEL THREE
     {
       id: uid(),
-      title: "THE LIGHTKEEPER",
+      title: "THE LAST ROSE OF ASHFORD",
       cover: '',
       createdAt: Date.now(),
       chapters: [
         {
-          title: 'Chapter One — The Last Light',
-          content: LIGHTKEEPER_CHAPTER_ONE
+          title: 'The Grey Morning',
+          content: ASHFORD_CHAPTER_ONE
         },
         {
-          title: 'Chapter Two — Morning',
-          content: LIGHTKEEPER_CHAPTER_TWO
+          title: 'Chapter Two',
+          content: ASHFORD_CHAPTER_TWO
+        },
+        {
+          title: 'Chapter Three',
+          content: ASHFORD_CHAPTER_THREE
         }
       ]
     }
-
   ];
 }
 
@@ -3229,12 +3204,40 @@ function seedNovels() {
 /* =====================================================================
    BOOT  (robust — survives if one step fails)
    ===================================================================== */
+function showLogin() {
+  const ls = document.getElementById('loginScreen');
+  const ap = document.getElementById('app');
+  const rd = document.getElementById('reader');
+  if (ls) ls.classList.remove('hidden');
+  if (ap) ap.classList.add('hidden');
+  if (rd) rd.classList.add('hidden');
+  document.body.style.overflow = '';
+  setTimeout(function () {
+    const n = document.getElementById('loginName');
+    if (n) n.focus();
+  }, 400);
+}
+
 function init() {
-  try { loadTheme(); }  catch (e) { console.error('loadTheme:', e); }
-  try { loadPrefs(); }  catch (e) { console.error('loadPrefs:', e); }
-  try { buildQuotes(); }catch (e) { console.error('buildQuotes:', e); }
-  try { loadNovels(); } catch (e) { console.error('loadNovels:', e); }
-  try { bindEvents(); } catch (e) { console.error('bindEvents:', e); }
+  // Mobile-friendly reset: open index.html?reset=1 once to wipe saved data
+  if (window.location.search.indexOf('reset=1') !== -1) {
+    try {
+      localStorage.removeItem('novelVault.novels');
+      localStorage.removeItem('novelVault.position');
+    } catch (e) {}
+    window.location.replace(window.location.pathname);
+    return;
+  }
+
+  try { loadTheme(); }   catch (e) { console.error('loadTheme:', e); }
+  try { loadPrefs(); }   catch (e) { console.error('loadPrefs:', e); }
+  try { buildQuotes(); } catch (e) { console.error('buildQuotes:', e); }
+  try { loadNovels(); }  catch (e) { console.error('loadNovels:', e); }
+  try { bindEvents(); }  catch (e) { console.error('bindEvents:', e); }
+
+  if (safeGet(KEY_AUTH, false) === true) showApp();
+  else showLogin();
+}
 
   if (safeGet(KEY_AUTH, false) === true) {
     showApp();
