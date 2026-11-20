@@ -3148,17 +3148,65 @@ NEXT:
 CHAPTER THREE — MR. VALE`;
 
 function seedNovels() {
-  return [{
-    id: uid(),
-    title: "THE DEVIL DOESN'T BARGAIN",
-    cover: '',
-    createdAt: Date.now(),
-    chapters: [
-      { title: 'Chapter One — A Man Nobody Remembered', content: CHAPTER_ONE_TEXT },
-      { title: 'Chapter Two — The Cost of Being Nobody', content: CHAPTER_TWO_TEXT }
-    ]
-  }];
+  return [
+
+    // NOVEL ONE
+    {
+      id: uid(),
+      title: "THE DEVIL DOESN'T BARGAIN",
+      cover: '',
+      createdAt: Date.now(),
+      chapters: [
+        {
+          title: 'Chapter One — A Man Nobody Remembered',
+          content: CHAPTER_ONE_TEXT
+        },
+        {
+          title: 'Chapter Two — The Cost of Being Nobody',
+          content: CHAPTER_TWO_TEXT
+        }
+      ]
+    },
+
+    // NOVEL TWO
+    {
+      id: uid(),
+      title: "THE LAST ROSE OF ASHFORD",
+      cover: '',
+      createdAt: Date.now(),
+      chapters: [
+        {
+          title: 'Chapter One — The Beginning',
+          content: ASHFORD_CHAPTER_ONE
+        },
+        {
+          title: 'Chapter Two — The Secret',
+          content: ASHFORD_CHAPTER_TWO
+        }
+      ]
+    },
+
+    // NOVEL THREE
+    {
+      id: uid(),
+      title: "THE LIGHTKEEPER",
+      cover: '',
+      createdAt: Date.now(),
+      chapters: [
+        {
+          title: 'Chapter One — The Last Light',
+          content: LIGHTKEEPER_CHAPTER_ONE
+        },
+        {
+          title: 'Chapter Two — Morning',
+          content: LIGHTKEEPER_CHAPTER_TWO
+        }
+      ]
+    }
+
+  ];
 }
+
 
 /* =====================================================================
    BOOT  (robust — survives if one step fails)
@@ -3236,31 +3284,34 @@ function logout() {
 /* =====================================================================
    NOVEL STORAGE
    ===================================================================== */
+
 function loadNovels() {
   const stored = safeGet(KEY_DATA, null);
+  const sourceNovels = seedNovels();
 
   if (Array.isArray(stored) && stored.length) {
     novels = stored;
 
-    const sourceNovel = seedNovels()[0];
+    sourceNovels.forEach(sourceNovel => {
+      const existingNovel = novels.find(
+        n => n.title === sourceNovel.title
+      );
 
-    const existingNovel = novels.find(
-      n => n.title === sourceNovel.title
-    );
+      if (existingNovel) {
+        existingNovel.chapters = sourceNovel.chapters;
+      } else {
+        novels.push(sourceNovel);
+      }
+    });
 
-    if (existingNovel) {
-      existingNovel.chapters = sourceNovel.chapters;
-      persist();
-    } else {
-      novels.unshift(sourceNovel);
-      persist();
-    }
+    persist();
 
   } else {
-    novels = seedNovels();
+    novels = sourceNovels;
     persist();
   }
 }
+
 
 function persist() {
   const ok = safeSet(KEY_DATA, novels);
