@@ -3238,8 +3238,24 @@ function logout() {
    ===================================================================== */
 function loadNovels() {
   const stored = safeGet(KEY_DATA, null);
+
   if (Array.isArray(stored) && stored.length) {
     novels = stored;
+
+    const sourceNovel = seedNovels()[0];
+
+    const existingNovel = novels.find(
+      n => n.title === sourceNovel.title
+    );
+
+    if (existingNovel) {
+      existingNovel.chapters = sourceNovel.chapters;
+      persist();
+    } else {
+      novels.unshift(sourceNovel);
+      persist();
+    }
+
   } else {
     novels = seedNovels();
     persist();
