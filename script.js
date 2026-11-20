@@ -1196,9 +1196,1957 @@ The door closed behind him.
 
 And somewhere, in a place he could not see, a clock began ticking.`;
 
-const CHAPTER_TWO_TEXT = `[ Chapter Two has not been written yet.
+const CHAPTER_TWO_TEXT = `
+PART ONE
+THE MAN BEHIND THE DOOR
 
-Open the novel with the ⚙ button and paste your Chapter Two text into the editor. Everything you type here will appear exactly as you formatted it, inside the reader — with all the font, colour and dark/light settings applied. ]`;
+The first thing Emilio noticed about Mr. Vale's office was that there were no photographs.
+
+No family portraits. No holiday pictures. No framed certificates or photographs of important people shaking hands.
+
+Nothing personal.
+
+The office was immaculate, almost unnaturally so. A large wooden desk stood near the window. Two leather chairs faced each other across a small table. On the desk sat a glass of water, a silver pen, and a thin black folder.
+
+Emilio's name was written on it.
+
+Not his first name.
+
+His full name.
+
+He looked at it for a moment before taking the chair Vale had offered him.
+
+"Water?" Vale asked.
+
+"No, thank you."
+
+"Of course."
+
+Vale sat opposite him.
+
+For several seconds, neither spoke.
+
+Emilio studied the man.
+
+He looked to be somewhere in his late forties, perhaps early fifties. His hair was neatly arranged, his suit expensive without being particularly noticeable. There was nothing theatrical about him.
+
+He looked like someone who might own several buildings, attend private meetings, and have lunch with people whose names appeared in newspapers.
+
+That was what made him frightening.
+
+He looked ordinary.
+
+Emilio glanced at his wrist.
+
+The silver watch.
+
+The black face.
+
+He remembered the photograph from university.
+
+"Have we met before?" Emilio asked.
+
+Vale adjusted his cuff.
+
+"Not formally."
+
+"That's not what I asked."
+
+A faint smile appeared on Vale's face.
+
+"No. I suppose it isn't."
+
+Emilio leaned forward.
+
+"You were in a photograph I took five years ago."
+
+"I know."
+
+The answer came without hesitation.
+
+Emilio felt his stomach tighten.
+
+"You know?"
+
+"Yes."
+
+"How?"
+
+Vale opened the black folder.
+
+"Before we discuss that, I'd like to understand something."
+
+"No. I think we're going to discuss that first."
+
+Vale looked up.
+
+For the first time, his expression changed slightly.
+
+Not irritation.
+
+Interest.
+
+"Very well."
+
+He closed the folder.
+
+"Ask."
+
+Emilio hesitated.
+
+"Who are you?"
+
+"I told you. Vale."
+
+"That's a name. Not an answer."
+
+"An answer is only useful when the question is precise."
+
+"Then let me be precise. Who are you, and why have you been watching me?"
+
+Vale considered him.
+
+Then he placed both hands on the desk.
+
+"Emilio, I have not been watching you in the way you imagine."
+
+"How am I imagining it?"
+
+"You believe someone has been following your movements. Observing your private life. Watching you through windows and photographs."
+
+"Hasn't someone?"
+
+"Not exactly."
+
+Emilio almost laughed.
+
+"You're going to have to do better than that."
+
+Vale nodded slowly.
+
+"Fair enough."
+
+He opened the folder again.
+
+Inside were several sheets of paper.
+
+Emilio recognized the first photograph immediately.
+
+It was the university photograph.
+
+The same one he had found on his phone the previous night.
+
+Except this version was printed in colour and appeared sharper.
+
+Vale slid it across the desk.
+
+"Do you remember this day?"
+
+"Yes."
+
+"Tell me about it."
+
+Emilio looked at the photograph.
+
+"I was nineteen. We had just finished an examination. I was with two friends."
+
+"Names?"
+
+"Why?"
+
+"I'm interested in your memory of the event."
+
+Emilio looked at him suspiciously.
+
+"Daniel and Marcus."
+
+"And what happened after the photograph was taken?"
+
+"We went for food."
+
+"Where?"
+
+"I don't remember."
+
+"Did you enjoy yourself?"
+
+Emilio frowned.
+
+"What kind of question is that?"
+
+"A simple one."
+
+"I suppose."
+
+Vale watched him.
+
+"You suppose?"
+
+Emilio looked down at the photograph again.
+
+He remembered the building. He remembered the examination. He remembered Daniel complaining about the questions.
+
+But the rest of the afternoon was strangely indistinct.
+
+"I don't remember everything," he admitted.
+
+"Most people don't."
+
+Vale picked up the photograph and returned it to the folder.
+
+"Memory is an unreliable witness."
+
+Emilio stared at him.
+
+"Are you going to explain why you have this?"
+
+"In time."
+
+"That seems to be your favourite answer."
+
+"It is often the most honest one."
+
+Vale turned another page.
+
+A document appeared.
+
+Emilio's employment history.
+
+His education.
+
+Previous applications.
+
+A record of the jobs he had applied for over the past several months.
+
+His outstanding debts.
+
+His current bank balance.
+
+Emilio stopped breathing for a moment.
+
+"Where did you get this?"
+
+Vale did not look up.
+
+"Public records. Professional databases. Information supplied by third parties. Some details were independently verified."
+
+"My bank balance?"
+
+"Financial information can be obtained through several legitimate and less legitimate channels."
+
+"Are you threatening me?"
+
+"No."
+
+"Then why show me this?"
+
+"Because I want you to understand that I did not call you randomly."
+
+Vale turned the document toward him.
+
+At the bottom was a small line.
+
+CURRENT FINANCIAL POSITION: CRITICAL.
+
+Emilio stared at the words.
+
+"That's unnecessary."
+
+"Is it inaccurate?"
+
+Emilio said nothing.
+
+Vale closed the folder.
+
+"I know about the applications. I know about the unpaid bills. I know you have been trying to find stable employment for months. I know you have considered borrowing money from people you would rather not ask."
+
+Emilio's jaw tightened.
+
+"And I know you have begun to believe that your life is passing you by."
+
+The room became very quiet.
+
+Emilio looked away.
+
+Vale continued.
+
+"You are not particularly unusual, Emilio. There are thousands of people in your position. Some are more intelligent than you. Some are more talented. Some are considerably more desperate."
+
+"Then why me?"
+
+"Because you are still dissatisfied."
+
+Emilio frowned.
+
+"Everyone is dissatisfied."
+
+"Not everyone."
+
+Vale leaned back.
+
+"Some people become comfortable with their limitations. They learn to negotiate with disappointment. They lower their expectations until disappointment no longer feels like failure."
+
+He paused.
+
+"You have not done that yet."
+
+Emilio looked at the folder.
+
+"How do you know?"
+
+"Because you are sitting here."
+
+The answer irritated him.
+
+"You called me."
+
+"And you came."
+
+Vale let the words settle.
+
+Then he glanced at the photograph once more.
+
+"Tell me something, Emilio. When you look at that picture, what do you see?"
+
+"My friends and me."
+
+"No. Look more carefully."
+
+Emilio examined it.
+
+"I don't understand."
+
+"What do you see when you look at yourself?"
+
+Emilio studied his younger face.
+
+He looked happier.
+
+Not necessarily successful. Not wealthy. Not even particularly confident.
+
+But there was something in his expression that he could no longer recognize.
+
+"I see a younger version of myself."
+
+"Exactly."
+
+Vale folded his hands.
+
+"And what happened to him?"
+
+Emilio looked up.
+
+"I grew up."
+
+Vale smiled faintly.
+
+"Perhaps."
+
+For the first time since entering the building, Emilio felt that the conversation was moving somewhere he did not want it to go.
+
+He stood.
+
+"I think I've heard enough."
+
+Vale did not attempt to stop him.
+
+"Of course."
+
+Emilio picked up his jacket.
+
+Then Vale spoke again.
+
+"You came here because you wanted your life to change."
+
+Emilio stopped.
+
+Vale looked at him.
+
+"I would encourage you not to confuse discomfort with danger. Sometimes the truth is uncomfortable because it describes something we have spent years avoiding."
+
+Emilio turned around.
+
+"And what truth is that?"
+
+Vale glanced at the folder.
+
+"That you are not afraid of failing."
+
+He paused.
+
+"You are afraid that you might remain exactly as you are."
+
+Emilio said nothing.
+
+Vale opened the folder once more.
+
+"Please sit down, Emilio."
+
+This time, Emilio did.
+
+PART TWO
+WHAT HE REALLY WANTED
+
+Vale poured himself a glass of water.
+
+He did not drink it.
+
+Instead, he placed it carefully beside the folder and looked at Emilio.
+
+"Let's begin again."
+
+Emilio settled into the chair.
+
+"Begin what?"
+
+"The conversation."
+
+Vale removed a sheet of paper from the folder.
+
+There were no logos, no company letterhead, and no official markings. Just a series of questions.
+
+"Imagine," Vale began, "that tomorrow morning you woke up and your circumstances had changed."
+
+Emilio watched him.
+
+"How changed?"
+
+"Completely."
+
+"Meaning?"
+
+"You had money. A stable career. A comfortable home. People respected you. Your financial problems were gone."
+
+Emilio gave a small, humourless laugh.
+
+"That sounds nice."
+
+"Would it be enough?"
+
+"Yes."
+
+Vale tilted his head.
+
+"Would it?"
+
+"Obviously."
+
+"Interesting."
+
+He wrote something on the paper.
+
+Emilio leaned forward.
+
+"What?"
+
+"Nothing important."
+
+"Then why write it?"
+
+Vale placed the pen down.
+
+"Because people rarely want only what they say they want."
+
+Emilio looked at him.
+
+"What does that mean?"
+
+"Suppose I gave you a million dollars tomorrow. What would happen?"
+
+"I'd pay my debts."
+
+"And after that?"
+
+"Get somewhere better to live. Buy a decent car. Invest some of it."
+
+"And after that?"
+
+Emilio paused.
+
+"I'd build something."
+
+"What?"
+
+"I don't know. A business, maybe."
+
+"Why?"
+
+Emilio looked irritated.
+
+"Because I don't want to spend my entire life struggling."
+
+Vale nodded.
+
+"That's reasonable."
+
+He waited.
+
+Emilio expected another question.
+
+Instead, Vale said something unexpected.
+
+"You want people to notice you."
+
+Emilio looked at him.
+
+"What?"
+
+"You want to walk into a room and not feel invisible. You want people to listen when you speak. You want your opinions to carry weight. You want the people who dismissed you to discover that they were wrong."
+
+Emilio looked away.
+
+Vale continued.
+
+"You want to be invited into places you currently stand outside. You want to stop explaining yourself. You want to stop pretending that rejection does not hurt."
+
+"You're making assumptions."
+
+"Am I?"
+
+"Yes."
+
+"Then correct me."
+
+Emilio opened his mouth.
+
+Nothing came out.
+
+Vale waited.
+
+The silence was becoming uncomfortable.
+
+Finally, Emilio spoke.
+
+"Maybe I just want a normal life."
+
+"Perhaps."
+
+"A good job. Enough money. A place of my own. The ability to help my family without worrying about how much it costs."
+
+"Those are admirable things."
+
+"Then what's the problem?"
+
+"Nothing."
+
+Vale smiled.
+
+"Except that you haven't told me what you really want."
+
+Emilio stared at him.
+
+For a moment, he thought about the message written on the back of the photograph.
+
+IF HE ASKS YOU WHAT YOU WANT, LIE.
+
+He had nearly forgotten about it.
+
+Now the sentence returned with uncomfortable clarity.
+
+He shifted in his chair.
+
+"I want to be successful."
+
+Vale nodded.
+
+"Better."
+
+"I want people to respect me."
+
+"Better still."
+
+"I want to become someone."
+
+Vale's expression remained unchanged.
+
+Then he said:
+
+"Someone."
+
+The word sounded different in his voice.
+
+As though he were testing its weight.
+
+Emilio looked at him.
+
+"Yes."
+
+"Do you believe you are nobody?"
+
+Emilio gave a quiet laugh.
+
+"Look around."
+
+Vale did.
+
+The office remained silent.
+
+"That is not an answer."
+
+"Then yes."
+
+Vale leaned forward.
+
+"Why?"
+
+Emilio looked at the floor.
+
+"Because nothing I do seems to matter."
+
+"To whom?"
+
+"Anyone."
+
+"Your mother?"
+
+Emilio looked up sharply.
+
+"Leave my mother out of this."
+
+Vale raised one hand slightly.
+
+"My apologies."
+
+Emilio stared at him.
+
+"How do you know about her?"
+
+"She is mentioned in your personal records."
+
+"That's not what I asked."
+
+Vale did not answer immediately.
+
+Then he closed the folder.
+
+"Your mother believes you are capable of more than you currently demonstrate."
+
+Emilio said nothing.
+
+"She worries about you," Vale continued. "She asks whether you have eaten. Whether you are sleeping. Whether you are managing."
+
+Emilio looked toward the window.
+
+"She doesn't need to worry."
+
+"Does she know that?"
+
+"No."
+
+"Why?"
+
+"Because I don't tell her everything."
+
+"Why not?"
+
+Emilio rubbed his palms together.
+
+"Because I don't want her thinking she failed."
+
+Vale watched him.
+
+There was no sympathy in his expression, but there was something else.
+
+Recognition.
+
+"Do you know what I find interesting about you, Emilio?"
+
+"No."
+
+"You have spent a considerable amount of time convincing yourself that nobody sees you."
+
+He paused.
+
+"Yet you spend an extraordinary amount of effort hiding how badly you are doing from the few people who actually care."
+
+Emilio felt something tighten in his chest.
+
+"Can we get back to the opportunity?"
+
+"Certainly."
+
+Vale moved the folder aside.
+
+"I want to show you something."
+
+He reached beneath the desk and produced a thin black tablet.
+
+He placed it on the table and turned the screen toward Emilio.
+
+A photograph appeared.
+
+A man standing outside a modern office building.
+
+He looked to be in his early thirties, dressed in a dark suit, smiling beside a woman and a young child.
+
+Emilio recognized the building.
+
+He had seen it in the city.
+
+"Who is that?"
+
+"Someone who was once in a position similar to yours."
+
+Vale swiped.
+
+Another photograph.
+
+The same man, several years earlier.
+
+He looked younger. His clothes were ordinary. His expression was tired.
+
+A second photograph showed him sitting in a small apartment.
+
+A third showed him receiving an award.
+
+"His name is Adrian," Vale explained. "Five years ago, he was unemployed, heavily indebted, and living in a rented room. His professional prospects were limited. He had little influence and almost no meaningful connections."
+
+Emilio looked at the photographs.
+
+"What happened?"
+
+"He made a decision."
+
+"What decision?"
+
+"One that changed his circumstances."
+
+"Was he involved with the Directorate?"
+
+Vale smiled.
+
+"Eventually."
+
+Emilio looked up.
+
+"Eventually?"
+
+"Yes."
+
+Vale swiped again.
+
+A photograph appeared of Adrian at a formal event, standing beside several influential people.
+
+"Today, he oversees operations across three major markets. His investments are substantial. His professional reputation is excellent."
+
+"How much does he make?"
+
+Vale mentioned a figure.
+
+Emilio stared.
+
+It was more money than he had ever imagined earning in a year.
+
+"That's impossible."
+
+"Is it?"
+
+Emilio examined the photograph again.
+
+The man looked ordinary.
+
+That was the strange part.
+
+He did not look like someone who had discovered a secret way to become wealthy.
+
+He looked like someone who had simply been given opportunities Emilio had never received.
+
+"How did he do it?"
+
+Vale locked the tablet.
+
+"That is what we are here to discuss."
+
+Emilio leaned forward.
+
+"Then discuss it."
+
+Vale looked directly at him.
+
+"Before I do, I need you to understand something."
+
+"What?"
+
+"Success does not always make a person happier."
+
+Emilio frowned.
+
+"That's easy to say when you have money."
+
+Vale did not react.
+
+"Money can remove certain problems. It can purchase comfort, security, influence, and access. It can change the way people treat you."
+
+He paused.
+
+"But it cannot guarantee that you will recognize the person who eventually receives those things."
+
+Emilio looked at him.
+
+"What does that mean?"
+
+Vale picked up the silver pen.
+
+"It means that every meaningful transformation has a cost."
+
+He placed the pen on the desk.
+
+"And you should never agree to pay a price before understanding what is being purchased."
+
+Emilio stared at him.
+
+For the first time, he wondered whether the warning was genuine.
+
+Or whether it was simply another way of making the offer sound more valuable.
+
+"Are you saying this opportunity comes with a price?"
+
+Vale smiled.
+
+"Everything does, Emilio."
+
+Then he opened the black folder again.
+
+PART THREE
+THE PEOPLE WHO BECOME IMPORTANT
+
+Vale removed three sheets of paper from the folder.
+
+He arranged them neatly on the table.
+
+"These are not contracts," he said. "They are examples."
+
+Emilio looked at the documents.
+
+Each contained a name, a photograph, and a short description.
+
+"Who are these people?"
+
+"Individuals who entered arrangements with our organization."
+
+"How many?"
+
+"Many."
+
+"How many is many?"
+
+Vale ignored the question.
+
+He pointed to the first photograph.
+
+A woman in her early forties stood beside a group of people at what appeared to be a business conference.
+
+"Clara. She was a junior administrator when we first encountered her. Today, she is a senior executive in a multinational organization."
+
+He moved to the second photograph.
+
+A man with grey hair stood in front of a large house.
+
+"Thomas. He had spent most of his adult life working in positions that offered little advancement. He now owns several businesses."
+
+The third photograph showed a younger man.
+
+"Julian. He was a talented engineer whose career had stalled. He now advises companies on infrastructure development."
+
+Emilio examined the photographs.
+
+"What did they have to do?"
+
+"That depends on the arrangement."
+
+"Meaning?"
+
+"Different people require different outcomes."
+
+Emilio frowned.
+
+"You're being deliberately vague."
+
+"Yes."
+
+The honesty surprised him.
+
+Vale continued.
+
+"We do not offer a universal solution. We identify a person's circumstances, ambitions, capabilities, and limitations. Then we determine whether an arrangement is appropriate."
+
+"Appropriate for whom?"
+
+"For both parties."
+
+Emilio leaned back.
+
+"You're making this sound like some kind of business partnership."
+
+"In certain respects, it is."
+
+"Then why all the secrecy?"
+
+Vale folded his hands.
+
+"Because not everyone understands what they are seeing."
+
+"That sounds convenient."
+
+"It often is."
+
+Emilio looked at the photographs again.
+
+"Do these people know each other?"
+
+"Some do."
+
+"Have they met?"
+
+"Yes."
+
+"Can I speak to them?"
+
+"Not at this stage."
+
+"Why?"
+
+"Because you are not yet a participant."
+
+Emilio frowned.
+
+"Participant?"
+
+Vale smiled slightly.
+
+"A poor choice of words, perhaps."
+
+He collected the photographs.
+
+Emilio watched him place them back into the folder.
+
+"Let me ask you something," Emilio said.
+
+"Please."
+
+"If these people were so successful, why would they need your organization?"
+
+Vale considered the question.
+
+"That is a very good question."
+
+He paused.
+
+"Why does a successful company employ consultants? Why does a wealthy individual maintain advisors? Why does a powerful institution continue to seek influence?"
+
+"Because they want more."
+
+"Exactly."
+
+Vale looked at him.
+
+"Success does not eliminate ambition. It changes its scale."
+
+Emilio nodded slowly.
+
+He could understand that.
+
+He had spent years imagining what life would be like if he had enough money.
+
+But the more he imagined, the more things he wanted.
+
+A better apartment.
+
+A car.
+
+A business.
+
+A respectable wardrobe.
+
+A name people recognized.
+
+Perhaps even a position where other people waited for his approval.
+
+He wondered whether there was a point at which wanting more stopped being ambition and became something else.
+
+"Do you work for these people?" Emilio asked.
+
+Vale looked at him.
+
+"Sometimes."
+
+"Who do you answer to?"
+
+"The Directorate."
+
+"And who runs it?"
+
+Vale's expression did not change.
+
+"That is not a question you need to concern yourself with today."
+
+Emilio shook his head.
+
+"You're asking me to trust an organization whose leadership I cannot identify."
+
+"No."
+
+Vale's answer was immediate.
+
+"I'm asking you to evaluate an opportunity."
+
+"Without knowing who's behind it."
+
+"You are free to decline."
+
+The same response again.
+
+Vale never begged.
+
+He never raised his voice.
+
+He never appeared offended by Emilio's suspicion.
+
+It was almost as though the possibility of rejection had already been accounted for.
+
+Emilio looked at the clock.
+
+6:43.
+
+He had been there for forty-three minutes.
+
+He thought about the apartment waiting for him.
+
+The unpaid bill.
+
+The empty refrigerator.
+
+The rejection email.
+
+He thought about his mother's message.
+
+Have you eaten?
+
+Then he looked at the photographs again.
+
+"How does it work?"
+
+Vale remained still.
+
+"How does what work?"
+
+"The arrangement."
+
+Vale opened a drawer and removed a small black envelope.
+
+He placed it on the desk.
+
+Emilio stared at it.
+
+"What's that?"
+
+"An invitation."
+
+"To what?"
+
+"An assessment."
+
+Emilio did not touch it.
+
+Vale explained.
+
+"The Directorate does not accept everyone who expresses interest. There are certain considerations. We evaluate whether an individual is suitable for the opportunities we facilitate."
+
+"And what happens if I qualify?"
+
+"Then we discuss the terms."
+
+"And if I don't?"
+
+"Then you leave."
+
+"With nothing?"
+
+"With your life exactly as it was before you arrived."
+
+Emilio looked at the envelope.
+
+It was unmarked.
+
+No company logo.
+
+No address.
+
+Nothing.
+
+He reached toward it, then stopped.
+
+"What happens to the people who accept?"
+
+Vale watched him carefully.
+
+"They receive what they agreed to receive."
+
+"That's not an answer."
+
+"It is the only answer I can give you at this stage."
+
+Emilio picked up the envelope.
+
+It was surprisingly heavy.
+
+He opened it.
+
+Inside was a single card.
+
+On it were five words.
+
+THE FIRST PAYMENT IS ATTENTION.
+
+Emilio read the sentence twice.
+
+"What does this mean?"
+
+Vale did not answer.
+
+He looked at the card for a moment, then at Emilio.
+
+"An interesting phrase, isn't it?"
+
+"Did you write it?"
+
+"No."
+
+"Who did?"
+
+"Someone who understood the cost of being noticed."
+
+Emilio turned the card over.
+
+Blank.
+
+He placed it on the table.
+
+"You're telling me I have to pay something?"
+
+"Not today."
+
+"Then when?"
+
+"When you understand what is being offered."
+
+Vale stood.
+
+The meeting was apparently over.
+
+Emilio looked at him.
+
+"That's it?"
+
+"For today."
+
+"You called me here, showed me photographs, told me almost nothing, and now you're sending me away?"
+
+Vale smiled.
+
+"I have told you quite a lot."
+
+"You've told me nothing useful."
+
+"Perhaps you were expecting something different."
+
+Emilio stood as well.
+
+"Maybe I was expecting an actual opportunity."
+
+Vale moved toward the door.
+
+"Opportunities are rarely presented in the form people expect."
+
+He opened it.
+
+Emilio stepped into the corridor.
+
+Before he could leave, Vale spoke again.
+
+"One more thing."
+
+Emilio turned.
+
+"Yes?"
+
+"Do not mistake the absence of attention for the absence of value."
+
+Emilio frowned.
+
+Vale continued.
+
+"Some people spend their entire lives trying to become visible. They eventually discover that being seen is not the same as being understood."
+
+He paused.
+
+"And being important is not the same as being loved."
+
+Emilio stared at him.
+
+For a brief moment, Vale's face seemed almost tired.
+
+Then the expression disappeared.
+
+"Have a pleasant evening."
+
+The door closed.
+
+Emilio stood alone in the corridor.
+
+He looked down at the black envelope in his hand.
+
+He had expected to leave with answers.
+
+Instead, he had acquired more questions.
+
+He entered the elevator and pressed the ground-floor button.
+
+As the doors began closing, he noticed something.
+
+A small security camera was mounted in the upper corner.
+
+Its lens was directed toward him.
+
+He watched it.
+
+The red light was not blinking.
+
+It was steady.
+
+For a moment, he thought he saw a reflection in the glass.
+
+A second person standing behind him.
+
+Tall.
+
+Dressed in a dark suit.
+
+Emilio spun around.
+
+The elevator was empty.
+
+The doors closed.
+
+When he reached the ground floor, the security guard was no longer at the reception desk.
+
+The building seemed quieter than before.
+
+He walked outside.
+
+The city continued as though nothing had happened.
+
+Cars moved.
+
+People laughed.
+
+Traffic lights changed.
+
+Emilio stood on the pavement holding the black envelope.
+
+He took out his phone.
+
+There was a message from his mother.
+
+Don't stay out too late. Hope you're okay.
+
+He stared at it.
+
+Then he looked at the envelope.
+
+For the first time in a long while, someone had made him feel that his life might contain something beyond disappointment.
+
+He hated himself for how much that feeling mattered.
+
+He put the envelope inside his jacket and began walking home.
+
+PART FOUR
+THE FIRST WARNING
+
+Emilio returned to his apartment shortly after eight.
+
+He locked the door behind him and placed the black envelope on the table.
+
+For several minutes, he did nothing.
+
+He simply stood there, looking at it.
+
+The apartment felt different.
+
+Not physically.
+
+The furniture was the same. The unpaid bill was still on the table. The refrigerator was still nearly empty.
+
+But something had changed.
+
+He had spent the afternoon with a man who knew more about his life than most people he had known for years.
+
+A man who spoke about success as though it were something that could be arranged.
+
+A man who had appeared in a photograph taken five years earlier.
+
+Emilio removed his jacket.
+
+He took out the printed photograph and placed it beside the envelope.
+
+He studied the man standing in the doorway.
+
+Then he looked at the black card.
+
+THE FIRST PAYMENT IS ATTENTION.
+
+He turned it over.
+
+Nothing.
+
+He examined the edges.
+
+Nothing.
+
+He placed it down.
+
+His phone vibrated.
+
+A notification from his email.
+
+He opened it.
+
+It was an automated message from one of the companies he had applied to earlier that week.
+
+Thank you for your application. Unfortunately, we will not be progressing with your candidacy.
+
+He stared at it.
+
+Then he laughed.
+
+Not because it was funny.
+
+Because the timing felt almost insulting.
+
+He closed the email and walked to the kitchen.
+
+He opened the refrigerator.
+
+The same half bottle of water.
+
+The same empty shelves.
+
+He stood there for a moment, then closed it.
+
+He returned to the table.
+
+The envelope was still there.
+
+He picked up his phone and searched for the number that had called him.
+
+Nothing.
+
+He searched for Vale again.
+
+Nothing useful.
+
+He tried searching for the Directorate using different phrases.
+
+Private advisory group.
+
+Strategic development organization.
+
+Institutional investment network.
+
+Nothing.
+
+The website he had found earlier was still accessible, but the photograph of the six men was gone.
+
+He refreshed the page.
+
+The photograph did not return.
+
+He opened the browser history and searched for the page.
+
+It was there.
+
+He clicked it.
+
+A message appeared.
+
+PAGE NOT FOUND.
+
+Emilio leaned back.
+
+"Of course."
+
+He closed the browser.
+
+For several minutes, he sat in silence.
+
+Then he noticed the envelope.
+
+It was open.
+
+He was certain he had left it closed.
+
+He reached for it.
+
+Inside was the same card.
+
+But there was something else.
+
+A second sheet of paper.
+
+He removed it carefully.
+
+It was a printed page containing a short paragraph.
+
+No heading.
+
+No signature.
+
+Just a few lines.
+
+YOU HAVE SPENT YEARS ASKING TO BE GIVEN A CHANCE.
+
+YOU HAVE BEEN GIVEN ONE.
+
+THE QUESTION IS WHETHER YOU ARE PREPARED TO BE SEEN.
+
+Emilio read it twice.
+
+He looked at the envelope.
+
+There was no opening through which another person could have placed the paper without him noticing.
+
+He checked the door.
+
+Still locked.
+
+He checked the windows.
+
+Closed.
+
+He returned to the table.
+
+A strange thought entered his mind.
+
+What if the message was not meant for him?
+
+What if someone else had placed it there?
+
+He looked at the handwriting.
+
+It was printed.
+
+Perfectly ordinary.
+
+But the sentence seemed strangely familiar.
+
+He turned the paper over.
+
+At the bottom was a date.
+
+Tomorrow.
+
+And beneath it:
+
+11:00 A.M.
+
+He stared at the time.
+
+He had not agreed to another meeting.
+
+He picked up his phone and dialled the unknown number.
+
+This time, it rang.
+
+Once.
+
+Twice.
+
+Then Vale answered.
+
+"Good evening, Emilio."
+
+Emilio's grip tightened.
+
+"How did this get here?"
+
+A pause.
+
+"What are you referring to?"
+
+"The paper. The envelope."
+
+"Ah."
+
+Vale sounded almost amused.
+
+"Did you find it?"
+
+"Don't do that."
+
+"Do what?"
+
+"Speak as though you know exactly what I'm talking about."
+
+Another pause.
+
+Then Vale said:
+
+"I believe you have received an invitation."
+
+"An invitation to what?"
+
+"Tomorrow's assessment."
+
+"I didn't agree to that."
+
+"You are not obligated to attend."
+
+"Then why send it?"
+
+"Because you may wish to reconsider."
+
+Emilio looked at the paper.
+
+"How did it get into my apartment?"
+
+Vale was silent.
+
+"Mr. Vale?"
+
+"Yes?"
+
+"How?"
+
+"Emilio, there are questions whose answers are more useful when understood in the correct order."
+
+"That's convenient."
+
+"Perhaps."
+
+Emilio walked toward the window.
+
+"Listen. I don't know what kind of organization you're running, but I don't appreciate people entering my apartment."
+
+"I understand."
+
+"Do you?"
+
+"Yes."
+
+"Then promise me it won't happen again."
+
+Vale did not answer immediately.
+
+Finally, he said:
+
+"No one entered your apartment."
+
+Emilio looked at the locked door.
+
+"Then how did this get here?"
+
+"That is something you may wish to consider."
+
+The call ended.
+
+Emilio stood motionless.
+
+He looked at his phone.
+
+Then at the envelope.
+
+He wanted to throw it away.
+
+He wanted to tear it into pieces, place it in the rubbish, and forget that he had ever met the man.
+
+Instead, he sat down.
+
+He opened the black card again.
+
+THE FIRST PAYMENT IS ATTENTION.
+
+He wondered what it meant.
+
+Attention from whom?
+
+Attention to what?
+
+Was this some kind of psychological experiment?
+
+A recruitment strategy?
+
+A wealthy group playing games with people who had nothing?
+
+The possibilities were endless.
+
+He opened his laptop and searched for the phrase.
+
+Nothing meaningful appeared.
+
+He tried another search.
+
+Nothing.
+
+Then, almost without thinking, he searched for Adrian.
+
+The man Vale had shown him.
+
+He found a professional profile.
+
+The photograph was different, but the face was unmistakable.
+
+Adrian was now listed as the managing director of a company with offices in several cities.
+
+Emilio opened the company's website.
+
+There were photographs of offices, employees, and business events.
+
+He scrolled through them.
+
+Then he found an interview.
+
+The headline read:
+
+FROM FAILURE TO INFLUENCE: HOW ADRIAN BUILT AN UNLIKELY CAREER.
+
+Emilio clicked.
+
+The article described Adrian's earlier struggles.
+
+His debts.
+
+His failed business.
+
+His unsuccessful applications.
+
+Then, suddenly, his career had changed.
+
+A new position.
+
+A new company.
+
+A series of extraordinary opportunities.
+
+He had never publicly explained how the transformation happened.
+
+The article included one quotation:
+
+"At some point, you have to stop asking why nobody believes in you and start deciding what you're willing to do to make them believe."
+
+Emilio read it again.
+
+He opened Adrian's professional profile and sent him a message.
+
+Hello. I came across your story and would appreciate some advice. I understand you once worked with an organization called the Directorate. Could you tell me more about your experience?
+
+He hesitated.
+
+Then he sent it.
+
+A few seconds later, the message showed as delivered.
+
+Emilio waited.
+
+Nothing.
+
+He closed the laptop.
+
+It was almost midnight.
+
+He went to bed, but sleep did not come easily.
+
+He kept thinking about the meeting.
+
+About Vale.
+
+About the photographs.
+
+About the offer.
+
+And most importantly, about the possibility that tomorrow could be different.
+
+At 2:36 A.M., his phone lit up.
+
+A new message.
+
+Emilio reached for it.
+
+The sender was Adrian.
+
+He opened it.
+
+For several seconds, he did not understand what he was reading.
+
+Then he sat upright.
+
+The message contained only one sentence.
+
+"Whatever they offer you, don't let them make you feel grateful."
+
+Emilio read it again.
+
+Then a second message appeared.
+
+"Especially if they tell you that you were chosen."
+
+He stared at the screen.
+
+His fingers hovered above the keyboard.
+
+He typed:
+
+Why? What happened to you?
+
+The message showed as delivered.
+
+No reply.
+
+He waited.
+
+A minute passed.
+
+Then another.
+
+He checked Adrian's profile.
+
+The account was still active.
+
+He returned to the conversation.
+
+A final message appeared.
+
+"Forget I contacted you."
+
+Emilio frowned.
+
+He began typing again.
+
+But before he could send anything, the conversation disappeared.
+
+Not deleted from his side.
+
+Gone.
+
+He refreshed the application.
+
+Nothing.
+
+He searched for Adrian's profile.
+
+It was still there.
+
+But the message history was empty.
+
+Emilio placed the phone on the mattress.
+
+He looked at the ceiling.
+
+The room was dark.
+
+For a long time, he did not move.
+
+Then he remembered something.
+
+The photograph.
+
+He reached toward the table and picked it up.
+
+The man in the doorway was still there.
+
+The silver watch.
+
+The black face.
+
+The same expressionless figure.
+
+Emilio turned the photograph over.
+
+IF HE ASKS YOU WHAT YOU WANT, LIE.
+
+He read the sentence again.
+
+Then he looked at the black envelope.
+
+Tomorrow.
+
+11:00 A.M.
+
+He had not agreed to attend.
+
+He had not even told Vale that he would consider it.
+
+But as the minutes passed, another thought began to take shape.
+
+Perhaps Adrian was warning him because the opportunity was dangerous.
+
+Perhaps Vale was dangerous.
+
+Perhaps the entire organization was dangerous.
+
+But what if the warning itself was part of the arrangement?
+
+What if someone wanted him to become frightened enough to walk away?
+
+He thought about his bank balance.
+
+$1.43.
+
+He thought about the unpaid $850 bill.
+
+He thought about the applications that never received replies.
+
+He thought about the people he had watched through restaurant windows.
+
+He thought about the man he had once been.
+
+And then he thought about the possibility of becoming someone else.
+
+Someone respected.
+
+Someone powerful.
+
+Someone whose calls were answered.
+
+Someone who never had to lie to his mother about whether he had eaten.
+
+He knew there was something wrong with the entire situation.
+
+He knew it.
+
+But knowing something was wrong had never been enough to make him walk away from everything he wanted.
+
+At 3:18 A.M., he finally made a decision.
+
+He would attend the assessment.
+
+Not because he trusted Vale.
+
+Not because he believed in the Directorate.
+
+But because he wanted to know what they were offering.
+
+And because, somewhere beneath the fear, there was a feeling he had not experienced in years.
+
+Hope.
+
+He placed the photograph inside the black envelope.
+
+Then he turned off the light.
+
+Across the city, in an office on the third floor of a building that did not appear on several public directories, Mr. Vale sat alone at his desk.
+
+A telephone rested beside his hand.
+
+He listened to a voice coming through the receiver.
+
+"He's interested."
+
+Vale looked at a photograph lying on the desk.
+
+Emilio.
+
+Nineteen years old.
+
+Standing outside a university building.
+
+The same photograph.
+
+"Naturally," Vale replied.
+
+The voice on the telephone continued.
+
+"There's a concern."
+
+Vale looked toward the window.
+
+"What concern?"
+
+"He received a message from Adrian."
+
+For the first time that evening, Vale's expression changed.
+
+Only slightly.
+
+"Did he read it?"
+
+"Yes."
+
+Vale remained silent.
+
+Then he asked:
+
+"Did Adrian say anything else?"
+
+"No."
+
+Vale looked down at his watch.
+
+The silver case reflected the light.
+
+"Interesting."
+
+He closed the folder.
+
+"Keep an eye on him."
+
+The voice hesitated.
+
+"And Adrian?"
+
+Vale looked at the photograph again.
+
+"Adrian has forgotten what happens when people interfere with an unfinished arrangement."
+
+He ended the call.
+
+Then he opened a drawer.
+
+Inside were dozens of black folders.
+
+Each bore a name.
+
+Some were old.
+
+Some were recent.
+
+Some had dates stretching back decades.
+
+He searched through them until he found one.
+
+EMILIO.
+
+He opened it.
+
+The first page contained a photograph of Emilio as a child.
+
+The second contained his educational history.
+
+The third contained information about his family.
+
+Vale turned to the final page.
+
+There was a handwritten note.
+
+It was old.
+
+The ink had faded slightly.
+
+But the words remained clear.
+
+DO NOT APPROACH THE BOY.
+
+Vale studied the sentence for a moment.
+
+Then he closed the folder.
+
+He placed it beneath the others.
+
+And for the first time that night, he looked genuinely displeased.
+
+END OF CHAPTER TWO
+
+NEXT:
+CHAPTER THREE — MR. VALE`;
 
 function seedNovels() {
   return [{
@@ -1657,7 +3605,21 @@ function renderPage() {
   }
 
   // Page indicator
-  $('#pageIndicator').textContent = 'Page ' + (currentPageIndex + 1) + ' of ' + currentPages.length;
+  // Continuous book-wide page indicator
+const totalBookPages = n.chapters.reduce((total, chapter) => {
+  return total + paginateChapter(chapter.content).length;
+}, 0);
+
+const previousChapterPages = n.chapters
+  .slice(0, currentChapterIndex)
+  .reduce((total, chapter) => {
+    return total + paginateChapter(chapter.content).length;
+  }, 0);
+
+const bookPageNumber = previousChapterPages + currentPageIndex + 1;
+
+$('#pageIndicator').textContent =
+  'Page ' + bookPageNumber + ' of ' + totalBookPages;
 
   // Boundary disabling
   const atStart = currentChapterIndex === 0 && currentPageIndex === 0;
@@ -1807,11 +3769,6 @@ function splitLongParagraph(para, limit) {
   return chunks;
 }
 
-function closeReader() {
-  $('#reader').classList.add('hidden');
-  document.body.style.overflow = '';
-  currentNovelId = null;
-}
 
 function renderChapter() {
   const n = getNovel(currentNovelId);
