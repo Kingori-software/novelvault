@@ -3204,47 +3204,12 @@ function seedNovels() {
 /* =====================================================================
    BOOT  (robust — survives if one step fails)
    ===================================================================== */
-function showLogin() {
-  const ls = document.getElementById('loginScreen');
-  const ap = document.getElementById('app');
-  const rd = document.getElementById('reader');
-  if (ls) ls.classList.remove('hidden');
-  if (ap) ap.classList.add('hidden');
-  if (rd) rd.classList.add('hidden');
-  document.body.style.overflow = '';
-  setTimeout(function () {
-    const n = document.getElementById('loginName');
-    if (n) n.focus();
-  }, 400);
-}
-
 function init() {
-  // Mobile-friendly reset: open index.html?reset=1 once to wipe saved data
-  if (window.location.search.indexOf('reset=1') !== -1) {
-    try {
-      localStorage.removeItem('novelVault.novels');
-      localStorage.removeItem('novelVault.position');
-    } catch (e) {}
-    window.location.replace(window.location.pathname);
-    return;
-  }
-
-  try { loadTheme(); }   catch (e) { console.error('loadTheme:', e); }
-  try { loadPrefs(); }   catch (e) { console.error('loadPrefs:', e); }
-  try { buildQuotes(); } catch (e) { console.error('buildQuotes:', e); }
-  try { loadNovels(); }  catch (e) { console.error('loadNovels:', e); }
-  try { bindEvents(); }  catch (e) { console.error('bindEvents:', e); }
-
-  if (safeGet(KEY_AUTH, false) === true) showApp();
-  else showLogin();
-}
-function showApp() {
-  const ls = document.getElementById('loginScreen');
-  const ap = document.getElementById('app');
-  if (ls) ls.classList.add('hidden');
-  if (ap) ap.classList.remove('hidden');
-  renderLibrary();
-}
+  try { loadTheme(); }  catch (e) { console.error('loadTheme:', e); }
+  try { loadPrefs(); }  catch (e) { console.error('loadPrefs:', e); }
+  try { buildQuotes(); }catch (e) { console.error('buildQuotes:', e); }
+  try { loadNovels(); } catch (e) { console.error('loadNovels:', e); }
+  try { bindEvents(); } catch (e) { console.error('bindEvents:', e); }
   if (safeGet(KEY_AUTH, false) === true) {
     showApp();
   } else {
