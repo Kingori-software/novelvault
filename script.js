@@ -1195,8 +1195,6 @@ Emilio stepped inside.
 The door closed behind him.
 
 And somewhere, in a place he could not see, a clock began ticking.`;
-*/=========================================================================================================================================================
-/*
 const CHAPTER_TWO_TEXT = `
 PART ONE
 THE MAN BEHIND THE DOOR
