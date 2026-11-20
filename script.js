@@ -3287,10 +3287,16 @@ function logout() {
 
 function loadNovels() {
   const stored = safeGet(KEY_DATA, null);
-  const sourceNovels = seedNovels();
 
-  if (Array.isArray(stored) && stored.length) {
-    novels = stored;
+  // Keep previously saved novels available
+  novels = Array.isArray(stored) ? stored : [];
+
+  try {
+    const sourceNovels = seedNovels();
+
+    if (!Array.isArray(sourceNovels)) {
+      throw new Error('seedNovels() did not return an array.');
+    }
 
     sourceNovels.forEach(sourceNovel => {
       const existingNovel = novels.find(
@@ -3306,13 +3312,15 @@ function loadNovels() {
 
     persist();
 
-  } else {
-    novels = sourceNovels;
-    persist();
+  } catch (error) {
+    console.error('Novel synchronization failed:', error);
+
+    // If there was no previous library, show the error
+    if (!novels.length) {
+      throw error;
+    }
   }
 }
-
-
 function persist() {
   const ok = safeSet(KEY_DATA, novels);
   if (!ok) {
