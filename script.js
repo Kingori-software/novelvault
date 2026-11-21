@@ -3151,7 +3151,682 @@ CHAPTER THREE — MR. VALE`;
 // THE LAST ROSE OF ASHFORD
 // ==========================================
 
-const ASHFORD_CHAPTER_ONE = `Hello there this is The New Novel`;
+const ASHFORD_CHAPTER_ONE = `THE LAST ROSE OF ASHFORD
+
+The Grey Morning
+
+Ashford, England — October 1485
+
+The morning arrived beneath a sky the colour of old pewter.
+
+A thin mist had settled over the fields surrounding Ashford, softening the distant hills and clinging to the branches of the trees. Beyond the castle walls, the town was slowly awakening. Chimneys released pale ribbons of smoke into the cold air, while the first merchants began opening their wooden shutters along the marketplace.
+
+The church bells sounded seven.
+
+Eleanor Ashford was already awake.
+
+She stood beside the narrow window of her chamber, watching the town emerge from the morning fog. From the eastern side of Ashford Castle, she could see the rooftops of the houses below, the crooked line of the main street and, beyond the marketplace, the old stone bridge crossing the river.
+
+A cart creaked across the bridge. Its driver called something to the horse, and the animal answered with an impatient toss of its head.
+
+Eleanor watched until they disappeared behind the buildings.
+
+There were mornings when she wished she could leave the castle without announcing her intentions to half the household. She would walk through the marketplace, visit the bookseller who occasionally travelled from York, and perhaps spend an hour beside the river without someone reminding her that a young lady of Ashford ought not wander about unattended.
+
+She smiled faintly at the thought.
+
+It was a pleasant dream, though not a particularly practical one.
+
+Behind her, a fire crackled in the hearth. Her chamber was warm, but the stone beneath the window remained cold. A small wooden table stood beside her bed, bearing a half-finished piece of embroidery, a brass candlestick and a book she had been reading the previous evening.
+
+She turned from the window and approached the table.
+
+The book was an old account of English noble families, written in French. Its pages were worn, and the binding had begun to loosen. Eleanor had been attempting to understand a passage concerning the inheritance of land when sleep had finally overcome her.
+
+She opened it again.
+
+Her eyes travelled over the lines, but her thoughts wandered elsewhere.
+
+The previous evening, Lord Geoffrey had spoken with the steward for nearly an hour. Their voices had carried through the great hall, though neither man had realised that Eleanor was returning from the library.
+
+She had heard the words debts, tenants and inheritance.
+
+Then her uncle had said something that had made her stop.
+
+"The matter cannot be delayed indefinitely. The girl must understand that the estate requires more than sentiment."
+
+The steward had replied, but Eleanor had not heard his answer.
+
+She had returned to her chamber without making her presence known.
+
+It was not the first time she had heard such conversations.
+
+Since her father's death, the affairs of Ashford had become increasingly complicated. Several tenants owed rent, repairs to the western boundary wall had been postponed, and the steward had more than once complained about the cost of maintaining the household.
+
+Her uncle insisted that everything remained under control.
+
+Eleanor had never entirely believed him.
+
+A knock sounded at the door.
+
+"Come."
+
+Agnes entered carrying a wooden tray. At sixty-one, the housekeeper moved with a measured confidence that suggested she had long ago learned the most efficient way to manage a household. Her grey hair was concealed beneath a neatly tied linen covering, and her dark gown was as immaculate as ever.
+
+"Good morrow, my lady."
+
+"Good morrow, Agnes."
+
+The tray contained bread, a small dish of butter, cheese and a cup of warmed ale.
+
+Eleanor glanced at it.
+
+"Have we no apples?"
+
+Agnes gave her a knowing look.
+
+"You had two yesterday."
+
+"And?"
+
+"And I am beginning to suspect that the orchard will not survive your appetite."
+
+Eleanor laughed.
+
+"Then we must pray for a fruitful harvest."
+
+"Indeed, my lady. Though I suspect the orchard would prefer a little mercy."
+
+Agnes placed the tray upon the table.
+
+For a moment, the older woman remained beside it, studying Eleanor with the familiar attention of someone who had known her since childhood.
+
+"You were awake early."
+
+"I have been awake for some time."
+
+"Reading again?"
+
+"Attempting to."
+
+Agnes glanced at the open book.
+
+"Your father would have been pleased to see you with that."
+
+Eleanor's expression softened.
+
+"My father was pleased whenever I occupied myself quietly."
+
+"Not always. I remember a certain occasion when you persuaded the stable boys to teach you how to climb a horse without assistance."
+
+Eleanor looked away, smiling.
+
+"I was eleven."
+
+"And Sir Edmund spent the better part of the afternoon searching for you."
+
+"He found me eventually."
+
+"He found you sitting in a hayloft with a bruised knee and a rather unfortunate opinion of the stable master."
+
+"He was a terrible teacher."
+
+"He was a patient man."
+
+Eleanor lowered her eyes.
+
+The mention of her father always seemed to change the room. His absence was not something she had grown accustomed to, no matter how many seasons had passed.
+
+Agnes noticed the change and quietly busied herself with the tray.
+
+"Your uncle expects you at breakfast," she said after a moment.
+
+Eleanor sighed.
+
+"Has he sent another summons?"
+
+"He asked that you join him."
+
+"That is not quite the same thing."
+
+"No, my lady."
+
+Eleanor broke a piece of bread.
+
+"Is he alone?"
+
+"Lord Geoffrey has been in the great hall since first light. Master Harcourt joined him shortly afterwards."
+
+The steward.
+
+Eleanor looked up.
+
+"Are they discussing the accounts again?"
+
+Agnes did not answer immediately.
+
+"I cannot say what gentlemen discuss behind closed doors."
+
+"Of course not."
+
+"But I would advise you not to keep them waiting."
+
+Eleanor regarded her for a moment. Agnes was a woman of few unnecessary words, and her silences were sometimes more revealing than her answers.
+
+"Very well."
+
+The housekeeper moved towards the door.
+
+"Agnes?"
+
+She turned.
+
+"Yes, my lady?"
+
+"Did my mother ever keep a journal?"
+
+The question appeared to catch her unprepared.
+
+"Your mother?"
+
+"Yes. I was looking through the shelves in the library yesterday. There are several volumes belonging to my father, but I wondered whether Lady Margaret kept any of her own."
+
+Agnes's fingers tightened briefly around the edge of her apron.
+
+"Your mother had many books."
+
+"That was not quite my question."
+
+"No, my lady."
+
+Eleanor waited.
+
+Agnes lowered her eyes.
+
+"I do not recall seeing a journal."
+
+It was an ordinary answer. Yet something in the housekeeper's manner made Eleanor study her more closely.
+
+Before she could ask anything further, Agnes inclined her head.
+
+"I shall send someone to attend your chamber after breakfast."
+
+And with that, she left.
+
+Eleanor remained beside the table, her appetite suddenly diminished.
+
+---
+
+The great hall was already occupied when Eleanor arrived.
+
+A fire burned beneath the enormous stone hearth, and the long wooden tables had been prepared for breakfast. The walls were decorated with old hunting trophies and banners bearing the Ashford crest: a silver rose upon a dark red field.
+
+At the head of the principal table sat Lord Geoffrey Ashford.
+
+He was a handsome man, though his appearance was softened by the careful expressions he had learned to wear in company. His dark hair was beginning to grey at the temples, and he carried himself with the confidence of someone accustomed to being obeyed.
+
+Beside him sat Master Harcourt, the estate steward, a narrow-faced man whose spectacles rested low upon his nose.
+
+"Ah, Eleanor," Geoffrey said as she approached. "There you are."
+
+"Good morrow, Uncle."
+
+"Good morrow. You have kept us waiting."
+
+"I was not aware that breakfast had become an affair requiring haste."
+
+Master Harcourt lowered his eyes to his plate.
+
+Geoffrey gave a small laugh.
+
+"You have your father's tongue."
+
+"So I have been told."
+
+"Sit down."
+
+Eleanor took her place opposite him.
+
+A servant poured her a little ale and placed a plate of bread and roasted meat before her.
+
+For several moments, the conversation concerned ordinary matters: the weather, the condition of the roads and the recent arrival of merchants from the south.
+
+Then Geoffrey set down his cup.
+
+"There are matters concerning the estate that require your attention."
+
+Eleanor looked at him.
+
+"I am listening."
+
+"Master Harcourt has been reviewing the household accounts. The harvest was poorer than expected in several holdings, and repairs to the southern boundary wall cannot be postponed much longer."
+
+"Then the repairs should be undertaken before winter."
+
+"That is easier said than done."
+
+"Why?"
+
+Geoffrey exchanged a glance with the steward.
+
+"Because the estate does not possess an endless supply of coin."
+
+Eleanor looked towards Harcourt.
+
+"How much is required?"
+
+The steward hesitated.
+
+"Approximately thirty pounds for the immediate repairs, my lady. More if the damage to the eastern section proves as extensive as we fear."
+
+"Thirty pounds?"
+
+"At the least."
+
+She considered this.
+
+"Then we should review the rents and expenditure before making any decisions."
+
+Geoffrey leaned back.
+
+"You speak as though the matter were a simple household account."
+
+"Surely it is better to understand the accounts before deciding what cannot be afforded."
+
+Her uncle's expression remained pleasant, though his eyes had grown less welcoming.
+
+"You have always possessed an interest in figures."
+
+"I have always possessed an interest in knowing what belongs to my family."
+
+A silence settled over the table.
+
+Master Harcourt found something particularly interesting about his breakfast.
+
+Geoffrey reached for his cup.
+
+"Your father was a capable man, Eleanor. He understood these matters."
+
+"Then perhaps his records will assist us."
+
+"Some of his records are incomplete."
+
+"How unfortunate."
+
+"Eleanor."
+
+She looked up.
+
+"I do not intend to argue with you," he said. "But there are responsibilities attached to this estate that you have yet to understand."
+
+"Then explain them to me."
+
+Her uncle studied her for a moment.
+
+"That is precisely what I intend to do. But we must also consider your future."
+
+There it was.
+
+Eleanor placed her knife beside her plate.
+
+"My future appears to be discussed rather frequently in my absence."
+
+Geoffrey ignored the remark.
+
+"You are twenty-one. It is time that serious arrangements were considered."
+
+"Arrangements?"
+
+"A marriage, Eleanor."
+
+She stared at him.
+
+"I see."
+
+"Lord Nicholas Pembroke's family has expressed an interest in renewing their acquaintance with Ashford. His father is a man of considerable means, and the family possesses influence in the north."
+
+"How fortunate for them."
+
+"Eleanor, I would appreciate a little seriousness."
+
+"I am being serious, Uncle. I am merely uncertain why my marriage should be discussed alongside the repair of a boundary wall."
+
+Master Harcourt coughed into his hand.
+
+Geoffrey's jaw tightened.
+
+"Because both concern the future of this house."
+
+Eleanor looked down at her plate.
+
+She had expected this conversation eventually. In truth, she had been expecting it for months. Her uncle had made several remarks about suitable families, advantageous connections and the obligations of noblewomen.
+
+Yet hearing the matter spoken so plainly made it seem suddenly more immediate.
+
+"Have I been asked whether I wish to marry Lord Nicholas?"
+
+"You have not met him in some years."
+
+"That was not my question."
+
+Geoffrey exhaled.
+
+"No decision has been made. His family is expected to visit before the winter."
+
+Eleanor said nothing.
+
+She remembered Nicholas Pembroke only vaguely. He had been a boy when she last saw him, perhaps a little older than herself, with an expensive cloak and an unpleasant habit of laughing whenever his father spoke.
+
+It was hardly a sufficient basis upon which to consider marriage.
+
+"I shall meet him when he arrives," she said at last.
+
+"Good."
+
+"But I will not promise anything."
+
+Geoffrey's expression hardened for the briefest moment.
+
+"That is not for you to decide alone."
+
+Eleanor rose from her chair.
+
+"Then I suppose we have very different understandings of what my future ought to be."
+
+"Eleanor, sit down."
+
+"I have finished breakfast."
+
+She inclined her head towards Master Harcourt.
+
+"Good day."
+
+Then she left the hall before her uncle could answer.
+
+---
+
+The garden was Eleanor's favourite place in Ashford.
+
+It was not the grandest part of the estate, nor the most carefully maintained, but it was the one place where she could walk without feeling that every movement had been observed and judged.
+
+The paths were laid with uneven stone, and the hedges had grown wild in several places. Beyond them stood a small orchard, its branches heavy with the last apples of the season.
+
+She walked slowly, her cloak gathered against the cold.
+
+The rain had stopped, but droplets still clung to the leaves. Somewhere beyond the garden wall, a blackbird called.
+
+At the far end stood the old rose bush.
+
+Eleanor approached it.
+
+Most of its branches were bare, and the remaining leaves had turned a deep shade of red. It had survived many winters, though the gardeners had repeatedly advised that it be removed.
+
+Her mother had planted it.
+
+Or so Eleanor had always been told.
+
+She could not remember the planting itself. Her earliest memories of the garden were indistinct: a warm afternoon, her mother's hand upon her shoulder, and the faint fragrance of roses drifting through the summer air.
+
+But she remembered the flowers.
+
+Her mother had loved them.
+
+"Still refusing to die, are you?"
+
+She reached out and brushed a leaf from one of the branches.
+
+There was something comforting about the bush. It had remained where it was long after the people who had tended it were gone.
+
+Eleanor crouched to examine its roots.
+
+The soil appeared freshly disturbed.
+
+She frowned.
+
+Perhaps one of the gardeners had been working there. Yet she had seen no tools or signs of recent pruning.
+
+A small stone lay beside the roots, its surface darker than the others.
+
+She reached towards it, then stopped.
+
+A voice called from the garden entrance.
+
+"My lady?"
+
+Eleanor turned.
+
+A young servant stood near the path.
+
+"Yes?"
+
+"Your uncle requests your presence in the great hall."
+
+"Again?"
+
+The servant hesitated.
+
+"He says there is a visitor."
+
+Eleanor rose.
+
+"A visitor?"
+
+"Yes, my lady. A gentleman has arrived at the castle gates."
+
+"Who?"
+
+"I was not told his name."
+
+She glanced once more at the rose bush.
+
+"Very well."
+
+As she followed the servant towards the castle, the wind moved through the branches behind her.
+
+The single remaining rose trembled.
+
+Then, with the weight of the rain still upon its petals, it slowly bent towards the earth.
+
+---
+
+The castle gates stood open when Eleanor reached the entrance courtyard.
+
+Two guards were speaking beside the gatehouse, while a stable boy hurried across the cobblestones leading a dark horse towards the stables.
+
+The animal was tall and well-kept, its coat dark with rain. Its saddle carried the marks of a long journey, and a travel cloak had been secured behind it.
+
+A man stood beside the horse.
+
+He was speaking to the stable boy, one hand resting upon the animal's neck. His clothing was travel-worn but of good quality: a dark riding cloak, a leather belt and a tunic fastened neatly at the collar.
+
+He appeared to be in his middle twenties.
+
+His posture was straight, his expression reserved. There was nothing particularly imposing about him, yet something in the way he observed his surroundings suggested that he missed very little.
+
+Eleanor slowed her steps.
+
+She did not recognise him.
+
+The man turned.
+
+Their eyes met briefly.
+
+He looked towards her with the quiet attentiveness of someone who had been expecting to see her, though he made no attempt to approach.
+
+Lord Geoffrey emerged from the great hall.
+
+"Ah! There you are."
+
+He crossed the courtyard with unusual haste.
+
+"Welcome to Ashford," he said, extending his hand.
+
+The stranger inclined his head.
+
+"My lord."
+
+His voice was calm, with a faint roughness that suggested the road had been long.
+
+Geoffrey gestured towards Eleanor.
+
+"My niece, Lady Eleanor Ashford."
+
+The man turned towards her.
+
+For a moment, he seemed to study her face, as though comparing it with a memory.
+
+Then he bowed.
+
+"My lady."
+
+Eleanor returned the courtesy.
+
+"Good morrow."
+
+"Good morrow."
+
+Geoffrey placed a hand upon the man's shoulder.
+
+"Lady Eleanor, this is Arthur Blackwood."
+
+The name meant little to her at first.
+
+Then she noticed the slight change in her uncle's expression.
+
+It was small, almost imperceptible, but enough to make her curious.
+
+"Blackwood?" she repeated.
+
+Arthur's gaze remained upon her.
+
+"Yes, my lady."
+
+"Your family is from the north, are they not?"
+
+"Originally."
+
+"And what brings you to Ashford?"
+
+Geoffrey answered before Arthur could.
+
+"Mr Blackwood has travelled a considerable distance. We shall speak of his business indoors."
+
+Eleanor looked at her uncle.
+
+"Of course."
+
+Arthur's expression did not change, though she thought she detected the faintest trace of amusement.
+
+Geoffrey turned towards the entrance.
+
+"Come, Blackwood. You must be tired from the journey. We have much to discuss."
+
+Arthur inclined his head and followed him.
+
+As he passed Eleanor, she noticed that his right hand rested near the hilt of a short sword at his belt. Not in a threatening manner, but with the ease of someone accustomed to carrying one.
+
+She stepped aside to let him pass.
+
+"Have you come far?" she asked.
+
+Arthur stopped.
+
+"Far enough."
+
+"That is not particularly informative."
+
+A pause.
+
+"From York, my lady."
+
+"Then I trust the roads were not too unkind."
+
+"They were tolerable."
+
+"How fortunate."
+
+For the first time, the corner of his mouth moved.
+
+"Indeed."
+
+He continued towards the great hall.
+
+Eleanor watched him disappear through the doorway.
+
+There was something peculiar about his arrival. Her uncle had not mentioned expecting a visitor, and the man's name had clearly unsettled him.
+
+She turned towards one of the guards.
+
+"Do you know Mr Blackwood?"
+
+The guard shifted his weight.
+
+"Not personally, my lady."
+
+"Has he visited before?"
+
+"Not in my time here."
+
+Eleanor considered that.
+
+Then she looked towards the great hall.
+
+The doors had closed behind the two men.
+
+She had the uncomfortable feeling that something important had just entered Ashford Castle.
+
+And whatever it was, her uncle had no intention of explaining it to her.
+
+---
+
+That evening, long after the household had settled, Eleanor returned to her chamber.
+
+The fire had burned low, and the wind had begun to rise again outside.
+
+She removed her cloak and placed it upon the wooden chest at the foot of her bed. Then she approached the window.
+
+The town below was quiet. A few lights remained visible behind the narrow windows of the inn, and somewhere in the distance a dog barked.
+
+She thought of the stranger.
+
+Arthur Blackwood.
+
+There was something familiar about the name, though she could not place it. Perhaps she had seen it among her father's old papers.
+
+She crossed to the writing table and opened a small wooden box.
+
+Inside lay several letters tied with a faded blue ribbon.
+
+They belonged to her mother.
+
+Eleanor had kept them for years, though she rarely read them. Some were ordinary household notes, others contained affectionate messages written in her mother's elegant hand.
+
+At the bottom lay the last letter she had received.
+
+It had never been completed.
+
+Eleanor carefully unfolded it.
+
+The handwriting was unmistakable.
+
+My dearest Eleanor,
+
+There are things in this world that a daughter ought never to have to understand. Yet there may come a day when you must ask questions that others would rather leave unanswered.
+
+If that day comes, do not mistake silence for the truth.
+
+The letter ended there.
+
+No farewell. No explanation.
+
+Only an unfinished sentence and the faint impression of ink where the quill had rested too long upon the parchment.
+
+Eleanor read the words again.
+Then she folded the letter and returned it to the box.
+Outside, the church bells struck nine.
+Somewhere within the castle, a door closed.
+And in a chamber on the eastern side of Ashford, Arthur Blackwood sat beside a dying fire, holding a letter bearing a name he had hoped never to see again.
+Margaret Ashford.`;
 
 const ASHFORD_CHAPTER_TWO = `UNAVAILABLE KINDLY WAIT FOR ADMIN TO ADD`;
 
